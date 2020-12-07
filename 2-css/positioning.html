@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS positioning</title>
+        <style type="text/css">
+            #first-section{
+                color: rgb(228, 35, 35);
+                background-color: rgb(253, 238, 220);
+                width: 150px;
+                position: relative;
+                left: 200px;
+                top: 100px;
+                z-index: 3;
+            }
+            #second-section{
+                color: #C3F946;
+                background-color: #35145D;
+                width: 150px;
+                position: relative;
+                left: 100px;
+                top: -50px;
+                z-index: 4;
+                opacity: 0.5;
+            }
+            #third-section{
+                background-color: #C3F946;
+                width: 150px;
+                position: absolute;
+                z-index: 1;
+                left: 750px;
+                height: 1500px;
+                top: 100px;
+            }
+            #fourth-section{
+                background-color: gold;
+                width: 150px;
+                position: fixed;
+                z-index: 2;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>CSS positioning</h2>
+        <p>Previously we used floats but for more fine tuning we can use positioning.</p>
+        <hr>
+        <div id="first-section">
+            <p>First let's work with two simple dividers.</p>
+            <p>With some random content to position.</p>
+        </div>
+        <div id="second-section">
+            <p>We will also position this section.</p>
+            <p>Where the text is also random.</p>
+        </div>
+        <p>The above two sections made use of relative positioning to where they would have started.</p>
+        <hr>
+        <p>These next two sections will use absolute and fixed positioning which both ignore the flow of relative positioning.</p>
+        <p>Absolute positioning algins itself within the page, as if it was stuck on.</p>
+        <p>Where fixed positioning is algined to the view of the page.</p>
+        <div id="third-section">
+            <p>First let's work with two simple dividers.</p>
+            <p>With some random content to position.</p>
+            <p>This has absolute positioning applied.</p>
+        </div>
+        <div id="fourth-section">
+            <p>We will also position this section.</p>
+            <p>Where the text is also random.</p>
+            <p>This has fixed positioning applied.</p>
+        </div>
+    </body>
+</html>

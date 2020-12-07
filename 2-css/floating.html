@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Floats in CSS</title>
+        <style type="text/css">
+            #first-section{
+                color: rgb(228, 35, 35);
+                background-color: rgb(253, 238, 220);
+                width: 150px;
+                float: left;
+            }
+            #second-section{
+                color: #C3F946;
+                background-color: #35145D;
+                width: 150px;
+                float: right;
+            }
+            .clear-floats{
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Floats in CSS</h2>
+        <p>This helps position our elements in the page</p>
+        <hr>
+        <div id="first-section">
+            <p>First let's work with two simple dividers.</p>
+            <p>With some random content to change their positons</p>
+        </div>
+        <div id="second-section">
+            <p>We will also change the postion of this section.</p>
+            <p>Where the text is also random.</p>
+        </div>
+        <hr>
+        <p>Notice Floats remove the default margins of the sections.</p>
+        <p>Anything that is not floated tries to fit itself inbetween.</p>
+        <div class="clear-floats">
+            <hr>
+            <p>In the case that we don't want the above to occur we need to make a new divider and clear the current floats.</p>
+        </div>
+    </body>
+</html>

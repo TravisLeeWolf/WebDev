@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS with divisions</title>
+        <style type="text/css">
+            #first-section{
+                color: darkblue;
+                background-color:lightblue;
+                width: 150px;
+            }
+            .second-section{
+                background-color: lightgoldenrodyellow;
+                width: fit-content;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>CSS with divisions</h2>
+        <p>Here we use divisions to split chunks of our HTML so that we can apply CSS in chunks, instead of assinging classes to each element.</p>
+        <hr>
+        <div id="first-section">
+            <p>This is the first chunk.</p>
+            <p>Which some CSS will be applied.</p>
+        </div>
+        <div class="second-section">
+            <p>This is the second chunk.</p>
+            <p>Where some other CSS will be applied.</p>
+        </div>
+    </body>
+</html>
