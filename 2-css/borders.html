@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Borders</title>
+        <style type="text/css">
+        #A{
+            background-color: red;
+            border: 5px yellow solid;
+        }
+        #B{
+            background-color:blue;
+            border-style: ridge solid dotted dashed;
+            border-color: greenyellow red pink orange;
+            border-width: 10px 5px 15px 2px;
+        }
+        #C{
+            background-color:green;
+            border-radius: 50%;
+        }
+        .square{
+            color: white;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            margin: 25px;
+            float: left;
+        }
+        .clear-floats{
+            clear: both;
+        }
+        </style>
+    </head>
+    <body>
+        <h2>CSS Boarders</h2>
+        <p>Borders allow you to improve the style of your elements, there are many options to style it.</p>
+        <div id="A" class="square">
+            <h1>A</h1>
+        </div>
+        <div id="B" class="square">
+            <h1>B</h1>
+        </div>
+        <div id="C" class="square">
+            <h1>C</h1>
+        </div>
+        <div class="clear-floats"></div>
+        <hr>
+        <p>In A we created a simple yellow boarder at a fixed size and style.</p>
+        <p>In B we varied the all 3 of these elements.</p>
+        <p>Lastly in C by setting the border radius to 50% we created a circle.</p>
+    </body>
+</html>

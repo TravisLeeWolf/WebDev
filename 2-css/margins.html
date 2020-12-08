@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS margins</title>
+        <style type="text/css">
+            #first-section{
+                color: darkblue;
+                background-color:lightblue;
+                width: 150px;
+                margin: 100px;
+            }
+            .second-section{
+                background-color: lightgoldenrodyellow;
+                width: fit-content;
+                margin-bottom: 50px;
+                margin-left: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>CSS margins</h2>
+        <p>In addition to float and position, we can use margins to determine the layout of our elements.</p>
+        <hr>
+        <div id="first-section">
+            <p>This is the first chunk.</p>
+            <p>Which some CSS will be applied.</p>
+        </div>
+        <div class="second-section">
+            <p>This is the second chunk.</p>
+            <p>Where some other CSS will be applied.</p>
+        </div>
+        <hr>
+        <p>In the case of the first box, the margins are set at 100px around the entire box (top, bottom, left, right</p>
+        <p>In the case of the second box, only bottom and left margins are used at 50px and 150px respectively.</p>
+    </body>
+</html>
