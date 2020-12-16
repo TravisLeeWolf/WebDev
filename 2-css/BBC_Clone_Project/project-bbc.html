@@ -1,29 +1,120 @@
 <!DOCTYPE html>
-<!--Stopped 10:30-->
+<!--Stopped at-->
 <html>
     <head>
         <title>Technology - BBC Clone</title>
         <style type="text/css">
             #top-bar{
-                width: 1000px;
+                width: 1200px;
                 margin: 0 auto;
-                background-color: aliceblue;
+                background-color: white;
                 height: 60px;
             }
             #logo{
                 margin-top: 10px;
+                margin-right: 10px;
+                height: 40px;
+                float: left;
+            }
+            .topbar-section{
+                float: left;
+                border-left: 1px #cccccc solid;
+                height: 100%;
+            }
+            #signin-image{
+                margin-top: 15px;
+                margin-left: 5px;;
+                margin-right: 10px;
+                height: 30px;
+                float: left;
+            }
+            #signin-text{
+                font-weight: bold;
+                font-size: 125%;
+                position: relative;
+                top: 20px;
+                padding-right: 50px;
+            }
+            #bell-div{
+                float: left;
+            }
+            #capline{
+                float: left;
+                height: 60px;
+            }
+            #bell{
+                height: 30px;
+                margin-top: 15px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .topbar-menu{
+                font-weight: bold;
+                font-size: 125%;
+                padding: 20px 15px 0 15px;
                 height: 40px;
             }
+            #more-arrow{
+                width: 12px;
+                margin-left: 20px;
+            }
+            #search-box{
+                background-color: #a9a9a9;
+                border: none;
+                font-weight: bold;
+                font-size: 15px;
+                padding: 5px;
+                margin: 16px 0 0 10px;
+                float: left;
+            }
+            #search-icon{
+                height: 17px;
+                background-color: #a9a9a9;
+                padding: 5px;
+                margin-top: 16px;
 
+            }
             body{
                 margin: 0;
                 padding: 0;
+                font-family: Arial, Helvetica, sans-serif;
             }
         </style>
     </head>
     <body>
         <div id="top-bar">
             <img id="logo" src="BBC.png">
+            <div id="sign-in" class="topbar-section">
+                <img id="signin-image" src="SignIn.webp">
+                <span id="signin-text">Sign In</span>
+            </div>
+            <div id="bell-div">
+                <img id="capline" src="CapLine.png">
+                <img id="bell" src="BellIcon.png">
+            </div>
+            <div class="topbar-section topbar-menu">
+                News
+            </div>
+            <div class="topbar-section topbar-menu">
+                Sport
+            </div>
+            <div class="topbar-section topbar-menu">
+                Weather
+            </div>
+            <div class="topbar-section topbar-menu">
+                iPlayer
+            </div>
+            <div class="topbar-section topbar-menu">
+                TV
+            </div>
+            <div class="topbar-section topbar-menu">
+                More
+                <img id="more-arrow" src="MoreArrow.png">
+            </div>
+            <div class="topbar-section">
+                <input id="search-box" type="text" value="Search">
+                <input id="search-icon" type="image" src="SearchIcon.png">
+            </div>
         </div>
     </body>
 </html>
