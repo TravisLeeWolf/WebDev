@@ -3,218 +3,7 @@
 <html>
     <head>
         <title>Technology - BBC Clone</title>
-        <style type="text/css">
-            #top-bar{
-                width: 1200px;
-                margin: 0 auto;
-                background-color: white;
-                height: 60px;
-            }
-            #logo{
-                margin-top: 10px;
-                margin-right: 10px;
-                height: 40px;
-                float: left;
-            }
-            .topbar-section{
-                float: left;
-                border-left: 1px #cccccc solid;
-                height: 100%;
-            }
-            #signin-image{
-                margin-top: 15px;
-                margin-left: 5px;;
-                margin-right: 10px;
-                height: 30px;
-                float: left;
-            }
-            #signin-text{
-                font-weight: bold;
-                font-size: 125%;
-                position: relative;
-                top: 20px;
-                padding-right: 50px;
-            }
-            #bell-div{
-                float: left;
-            }
-            #capline{
-                float: left;
-                height: 60px;
-            }
-            #bell{
-                height: 30px;
-                margin-top: 15px;
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-            .topbar-menu{
-                font-weight: bold;
-                font-size: 125%;
-                padding: 20px 15px 0 15px;
-                height: 40px;
-            }
-            #more-arrow{
-                width: 12px;
-                margin-left: 20px;
-            }
-            #search-box{
-                background-color: #a9a9a9;
-                border: none;
-                font-weight: bold;
-                font-size: 15px;
-                padding: 5px;
-                margin: 16px 0 0 10px;
-                float: left;
-            }
-            #search-icon{
-                height: 17px;
-                background-color: #a9a9a9;
-                padding: 5px;
-                margin-top: 16px;
-
-            }
-            .clear{
-                clear: both;
-            }
-            #menubar-container{
-                background-color: firebrick;
-                width: 100%;
-                height: 85px;
-                border-top: 1px #cccccc solid;
-            }
-            #menubar{
-                width: 1200px;
-                margin: 0 auto;
-            }
-            h1{
-                padding: 0;
-                margin: 0;
-                color: white;
-                font-size: 50px;
-                font-weight: normal;
-                padding-top: 10px;
-                float: left;
-            }
-            #local-news{
-                float: right;
-                width: 180px;
-                border: 1px  darkred solid;
-                padding: 5px 0 0 10px;
-                margin: 20px 45px;
-            }
-            #local-news a{
-                color: white;
-                text-decoration: none;
-                font-size: 20px;
-                position: relative;
-                top: -8px;
-            }
-            #local-news a:hover{
-                text-decoration: underline;
-            }
-            #localnews-image{
-                height: 30px;
-                padding-left: 5px;
-            }
-            #menuitems-container{
-                background-color: darkred;
-                width: 100%;
-            }
-            #menuitems{
-                width: 1200px;
-                margin: 0 auto;
-                height: 40px;
-            }
-            #menuitems a{
-                color: white;
-                text-decoration: none;
-                padding: 0 10px;
-                border-right: 1px solid firebrick;
-                font-size: 18px;
-                position: relative;
-                top: 8px;
-            }
-            #menuitems a:hover{
-                text-decoration: underline;
-            }
-            .no-border{
-                border: none !important;
-            }
-            #downarrow-white{
-                height: 10px;
-                position: relative;
-                top: 8px;
-            }
-            #page-container{
-                width: 1200px;
-                margin: 0 auto;
-            }
-            h2{
-                font-weight: normal;
-                margin-top: 10px;
-                font-size: 25px;
-                border-bottom: 4px solid firebrick;
-                width: 130px;
-            }
-            h3 a{
-                color: black;
-                font-size: 35px;
-                text-decoration: none;
-            }
-            h3 a:hover{
-                color:royalblue;
-            }
-            #article-summary{
-                color: dimgrey;
-                width: 300px;
-                float: left;
-            }
-            #article-container{
-                float: left;
-                width: 750px;
-                border-right: 1px solid #cccccc;
-                padding-right: 20px;
-            }
-            #article-summary img{
-                height: 15px;
-                position: relative;
-                top: 1px;
-            }
-            #topic-link{
-                text-decoration: none;
-                color: darkred;
-                border-left: 1px #cccccc solid;
-                padding: 10px;
-            }
-            #topic-link:hover{
-                color: royalblue;
-            }
-            #date{
-                padding-right: 10px;
-                padding-left: 5px;
-            }
-            #mainarticle-img{
-                width: 400px;
-                margin-left: 20px;
-            }
-            #article-hr{
-                width: 40px;
-                border-top: 2px solid firebrick;
-            }
-            .article-link{
-                color: black;
-                text-decoration: none;
-            }
-            .article-link:hover{
-                color: royalblue;
-            }
-            body{
-                margin: 0;
-                padding: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="project-bbc.css">
     </head>
     <body>
         <div id="top-bar">
@@ -287,12 +76,32 @@
                     <h3><a href="">Elon Musk's Starship takes to the skies</a></h3>
                     <div id="article-summary">
                         <p>The US tech billionaire Elon Musk has flown the latest prototype of his Starship - a vehicle he hopes will one day take people to Mars.</p>
-                        <p><img src="Clock.png"> <span id="date"> December 2020</span><a id="topic-link" href="">Technology</a></p>
+                        <p><img class="clock" src="Clock.png"> <span class="date"> December 2020</span><a class="topic-link" href="">Technology</a></p>
                         <hr id="article-hr" align="left">
                         <p><a class="article-link" href="">SpaceX Starship rocket blows up trying to land</a></p>
                         <p><a class="article-link" href="">Indonesia courts SpaceX as new rocket launch site</a></p>
                     </div>
                     <img id="mainarticle-img" src="StarshipSmall.png">
+                </div>
+            </div>
+            <div id="watch-listen">
+                <h4>Watch/Listen</h4>
+                <img class="sidestory-image" src="SideStory1.PNG">
+                <div class="side-story">
+                    <p><a class="ss-link" href="">US cyber-attack 'genuinely impacted' 50 firms</a></p>
+                    <p><img class="clock" src="Clock.png"> <span class="date"> December 2020</span></p>
+                </div>
+                <div class="clear"></div>
+                <img class="sidestory-image" src="SideStory2.PNG">
+                <div class="side-story">
+                    <p><a class="ss-link" href="">Budget smartphones: What do you get for £100?</a></p>
+                    <p><img class="clock" src="Clock.png"> <span class="date-border-right"> December 2020</span><br><a class="topic-link-no-border" href="">Technology</a></p>
+                </div>
+                <div class="clear"></div>
+                <img class="sidestory-image" src="SideStory3.PNG">
+                <div class="side-story">
+                    <p><a class="ss-link" href="">Click News: The AI blob opera</a></p>
+                    <p><img class="clock" src="Clock.png"> <span class="date-border-right"> December 2020</span><br><a class="topic-link-no-border" href="">Entertainment</a></p>
                 </div>
             </div>
         </div>
