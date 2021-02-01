@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Changing web content</title>
+    </head>
+    <body>
+        <h2>Changing web content</h2>
+        <p>Appending and creating new elements using JavaScript.</p>
+        <hr>
+        <p id="first_paragraph">JavaScript is ... </p>
+        <button id="first_button">Append text above</button>
+        <p id="second_paragraph"></p>
+        <button id="second_button">Add text</button>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            document.getElementById("first_button").onclick = function(){
+                document.getElementById("first_paragraph").innerHTML = "I think " + document.getElementById("first_paragraph").innerHTML + "awesome!";
+            }
+            document.getElementById("second_button").onclick = function(){
+                document.getElementById("second_paragraph").innerHTML = "<h3>Some text has been added!</h3>";
+            }
+        </script>
+    </body>
+</html>
