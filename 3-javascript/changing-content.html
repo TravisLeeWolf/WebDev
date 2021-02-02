@@ -11,6 +11,9 @@
         <button id="first_button">Append text above</button>
         <p id="second_paragraph"></p>
         <button id="second_button">Add text</button>
+        <p id="third_paragraph">This is some unstyled text, click below to add style.</p>
+        <button id="third_button">Add style</button>
+        <button id="forth_button">Click to make text disapear</button>
         <!--Below is the JavaScript code-->
         <script type="text/javascript">
             document.getElementById("first_button").onclick = function(){
@@ -18,6 +21,13 @@
             }
             document.getElementById("second_button").onclick = function(){
                 document.getElementById("second_paragraph").innerHTML = "<h3>Some text has been added!</h3>";
+            }
+            document.getElementById("third_button").onclick = function(){
+                document.getElementById("third_paragraph").style.color = "red";
+                document.getElementById("third_paragraph").style.fontSize = "25px";
+            }
+            document.getElementById("forth_button").onclick = function(){
+                document.getElementById("third_paragraph").style.display = "none";
             }
         </script>
     </body>
