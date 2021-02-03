@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Variables</title>
+    </head>
+    <body>
+        <h2>Variables</h2>
+        <p>This looks more at the programming side of JavaScript</p>
+        <hr>
+        <p id="change-this">Type something below and click the button to change this text.</p>
+        <p>Enter text:<input id="user-text" type="text"></p>
+        <button id="change-text">Click to change</button>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            document.getElementById("change-text").onclick = function(){
+                var userText = ""
+                userText = document.getElementById("user-text").value;
+                document.getElementById("change-this").innerHTML = userText;
+            }
+        </script>
+    </body>
+</html>
