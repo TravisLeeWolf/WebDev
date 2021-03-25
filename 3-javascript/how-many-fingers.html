@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>How Many Fingers</title>
+    </head>
+    <body>
+        <!--Description of the learning section-->
+        <h2>This is a random number guessing game in JavaScript</h2>
+        <p>In this example the user needs to guess how many fingers are being held up,</p>
+        <p>where the JavaScript uses a random number generator to pick the number of fingers.</p>
+        <hr>
+        <!--Game related text and inputs-->
+        <h3 id="response">How many fingers am I holding up?</h3>
+        <p>(Between 0 - 5)</p>
+        <input id="answer" type="number">
+        <button id="check">Guess</button>
+        <!--Below is the JavaScript code for the game-->
+        <script type="text/javascript">
+            //alert(Math.floor(Math.random() * 6))
+            // You can set the random number before the button click to retain the same number
+            document.getElementById("check").onclick = function(){
+                var numberToGuess = Math.floor(Math.random() * 6)
+                var answer = document.getElementById("answer").value;
+                var checkAnswer = Number(answer)
+                if (answer==numberToGuess){
+                    alert("Correct it's " + numberToGuess)
+                }else{
+                    alert("Nope, it was " + numberToGuess)
+                }
+                
+            }
+        </script>
+    </body>
+</html>
