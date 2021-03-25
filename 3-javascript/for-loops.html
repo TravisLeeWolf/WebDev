@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>For Loops</title>
+    </head>
+    <body>
+        <h2>For Loops</h2>
+        <p>Working with for loops in JavaScript</p>
+        <hr>
+        <div id="fruitsDiv"></div>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+        var frutisString = "";
+        var fruits = ["banana", "apple", "mango", "strawberry"]
+            for (var i=0; i < fruits.length; i++ ){
+               frutisString = frutisString + "<p>" + fruits[i] + "</p>"; 
+            }
+            document.getElementById("fruitsDiv").innerHTML = frutisString;
+        </script>
+        <hr>
+        <p>Above is a printed list from an array in JavaScript using a for loop.</p>
+    </body>
+</html>
