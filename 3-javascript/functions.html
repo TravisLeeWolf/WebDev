@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Functions</title>
+    </head>
+    <body>
+        <h2>Functions</h2>
+        <p>Making and using functions in JavaScript</p>
+        <p>Check the HTML for basic functions.</p>
+        <p>The code below will be using functions to simplify the process.</p>
+        <hr>
+        <h3>How many fingers are you holding up?</h3>
+        <select id="myNumber">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <button id="test">Guess</button>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            /** This is a basic function with no inputs
+            
+            function alertMe(){
+                alert("This is an alert.")
+            }
+            alertMe();
+            **/
+
+            /** This is a basic function that takes two inputs to find the average
+            
+            function average(a,b){
+                return((a +b)/2);
+            }
+            var x = 5;
+            var y = 10;
+            alert(average(x,y));
+            **/
+
+            // This is the code used for guessing the correct fingers
+            function doAGuess(correctAnswer){
+                var guess = Math.floor(Math.random() * 6);
+                if (guess == correctAnswer){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+            document.getElementById("test").onclick = function(){
+                var myNumber = document.getElementById("myNumber").value;
+                var gotIt = false;
+                var numberOfGuesses = 1;
+                while (gotIt == false){
+                    if (doAGuess(myNumber) == true){
+                        gotIt = true;
+                        alert("Got it! It was " + myNumber + ". It took me " + numberOfGuesses + " guesses.")
+                    } else{
+                        numberOfGuesses++;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
