@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>While Loops</title>
+    </head>
+    <body>
+        <h2>While Loops</h2>
+        <p>In this section we will use while loops in JavaScript,</p>
+        <p>to do a reverse of How many fingers, where the computer needs to guess.</p>
+        <hr>
+        <h3>How many fingers are you holding up?</h3>
+        <p>The computer will guess and tell you how many tries it took.</p>
+        <input id="fingers" type="text">
+        <button id="test">Start</button>
+        <p id="yourNumber">Pick a number between 0 and 5</p>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            document.getElementById("test").onclick = function(){
+                var fingers = Number(document.getElementById("fingers").value);
+                //var numbers = [0,1,2,3,4,5];
+                //var i=0;
+                var guessNumber = Math.floor(Math.random() * 6);
+                var tries = 1;
+                while (guessNumber != fingers){
+                    //i++;
+                    guessNumber = Math.floor(Math.random() * 6);
+                    tries++;
+                }
+                alert("It took " + tries + " tries.");
+                document.getElementById("yourNumber").innerHTML = "Your number is " + guessNumber;
+            }
+            
+        </script>
+    </body>
+</html>
