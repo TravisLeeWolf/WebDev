@@ -10,7 +10,15 @@
         <hr>
         <h3>How many fingers are you holding up?</h3>
         <p>The computer will guess and tell you how many tries it took.</p>
-        <input id="fingers" type="text">
+        <!--Select is used to avoid creating an infinite loop when using while-->
+        <select id="fingers">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
         <button id="test">Start</button>
         <p id="yourNumber">Pick a number between 0 and 5</p>
         <!--Below is the JavaScript code-->
