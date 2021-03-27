@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Reaction Game</title>
+        <!--Below is the CCS code-->
+        <style type="text/css">
+            body{
+                font-family: Arial;
+            }
+            
+            #shape {
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                display: none;
+                position: relative;
+
+            }
+            .bold{
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>JavaScript Reaction Game</h2>
+        <p>This is a reaction based game writen in JavaScript.</p>
+        <hr>
+        <h1>Test your reaction time!</h1>
+        <h3>Click on the boxes and circles as soon as they appear.</h3>
+        <p>Your reaction time will be displayed below.</p>
+        <p class="bold">Your time: <span id="timeTaken"></span></p>
+        <div id="shape"></div>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+        var start = new Date().getTime();
+        // Function to pick a random HTML color
+        function getRandomColor(){
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ){
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        // Function to make the shape appear
+        function makeShapeAppear(){
+            var top = Math.random() * 400;
+            var left = Math.random() * 800;
+            var width = (Math.random() * 250) + 50;
+            if (Math.random() > 0.5){
+                document.getElementById("shape").style.borderRadius = "50%";
+            } else{
+                document.getElementById("shape").style.borderRadius = "0%";
+            }
+            document.getElementById("shape").style.backgroundColor = getRandomColor();
+            document.getElementById("shape").style.width = width + "px";
+            document.getElementById("shape").style.height = width + "px";
+            document.getElementById("shape").style.top = top + "px";
+            document.getElementById("shape").style.left = left + "px";
+            document.getElementById("shape").style.display = "block";
+            start = new Date().getTime();
+        }
+        // A timeout for when the shape appears
+        function appearAfterDelay(){
+            setTimeout(makeShapeAppear, Math.random() * 2000);
+        }
+        appearAfterDelay();
+            document.getElementById("shape").onclick = function(){
+                document.getElementById("shape").style.display = "none";
+                var end = new Date().getTime();
+                var timeTaken = (end - start)/1000;
+                document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+                appearAfterDelay();
+            }
+        </script>
+    </body>
+</html>
