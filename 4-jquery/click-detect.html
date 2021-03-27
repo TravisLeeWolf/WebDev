@@ -4,13 +4,50 @@
         <title>jQuery - Click Detection</title>
         <!--Loading jQuery in to the page-->
         <script src="jquery.min.js"></script>
+        <!--CSS code below-->
+        <style type="text/css">
+            #circle{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-color: green;
+                margin: 10px;
+            }
+            .square{
+                width: 150px;
+                height: 150px;
+                background-color: red;
+                margin: 10px;
+            }
+        </style>
     </head>
     <body>
         <h2>jQuery - Click Detection</h2>
         <p>How to handle click detection using jQuery.</p>
         <hr>
+        <p>Here are some div elements with the circle having an id and squares using a class.</p>
+        <p>In jQuery you can select by id, class and also html tag.</p>
+        <p>See the HTML code for details.</p>
+        <h3>Clcik any shape.</h3>
+        <div id="circle"></div>
+        <div class="square"></div>
+        <div class="square"></div>
         <!--Below is the JavaScript code-->
         <script type="text/javascript">
+            // This is how you would select an element in jQuery
+            $("#circle").click(function(){
+                alert("Circle was clicked!")
+            });
+
+            // You can select classes as well  
+            $(".square").click(function(){
+                alert("A square was clicked!")
+            });
+
+            // You can also select by tags
+            $("div").click(function(){
+                alert("A div was clicked!")
+            });
         </script>
     </body>
 </html>
