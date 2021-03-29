@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery - Updating a page</title>
+        <!--Loading jQuery in to the page-->
+        <script src="jquery.min.js"></script>
+        <!--Code for CSS below-->
+        <style type="text/css">
+            #circle{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-color: green;
+                margin: 20px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <h2>jQuery - Updating a page</h2>
+        <p>Using jQuery to update elements of our page.</p>
+        <hr>
+        <div id="circle"></div>
+        <p id="changeThis">Click or hover over the circle.</p>
+        <iframe src="https://www.wikipedia.org/"></iframe>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            $("#circle").click(function(){
+                $("#changeThis").html("This text has changed by a click.");
+                //alert($("#changeThis").html()) is a get function to display the current text
+            });
+            // Do something when hovering over the circle
+            $("#circle").hover(function(){
+                $("#changeThis").html("You've hovered over the circle.");
+                $("iframe").attr("src", "https://www.gtplanet.net/")
+            });
+
+            // Note for JS you need to specify items in terms of the CSS tag you'd use
+            // id="changeThis" to access in jQuery use #changeThis
+        </script>
+    </body>
+</html>
