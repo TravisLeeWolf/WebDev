@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fading elements</title>
+        <!--Loading jQuery in to the page-->
+        <script src="jquery.min.js"></script>
+        <!--Below is the CSS code-->
+        <style type="text/css">
+            .shape{
+                width: 150px;
+                height: 150px;
+                margin: 20px;
+            }
+            #circle{
+                border-radius: 50%;
+                background-color: red;
+            }
+            #square{
+                background-color: blue;
+            }
+            #fadeInText{
+                display: none;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h2>Fading elements</h2>
+        <p>Using jQuery to fade elements of a page for better transitions.</p>
+        <hr>
+        <div id="circle" class="shape"></div>
+        <p id="circleText">Clicking the circle will make it fade out.</p>
+        <div id="square" class="shape"></div>
+        <p id="squareText">Clicking the square will make it disappear.</p>
+        <hr>
+        <button id="fadeOut">Fade Out</button>
+        <p id="fadeOutText">The button above will make this text fade out.</p>
+        <button id="fadeIn">Fade In</button>
+        <p id="fadeInText">This text has been faded in.</p>
+        <hr>
+        <p>Here we will toggle when the text is visible to fade out and when not to fade in.</p>
+        <button id="toggle">Toggle Fade</button>
+        <p id="toggleText">This is some text that can be faded in or out.</p>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            // Either fades out or hides the circle and square
+            $(".shape").click(function(){
+                if ($(this).attr("id") == "circle"){
+                    $(this).fadeOut("slow", function(){
+                        // The above adds a callback function so when fadeOut is completed it runs what's below
+                        $("#circleText").html("The circle has faded away.");
+                    });
+                } else{
+                    $(this).hide(function(){
+                        $("#squareText").html("The square has disappeared.");
+                    });
+                }
+            });
+            // Fades out the text
+            $("#fadeOut").click(function(){
+                $("#fadeOutText").fadeOut();
+            });
+            // Fades in the text
+            $("#fadeIn").click(function(){
+                $("#fadeInText").fadeIn();
+            });
+            // Toggles between fading in hidden text or fading out shown text
+            /* This method doesn't use a boolean
+            $("#toggle").click(function(){
+                if($("#toggleText").css("display") == "none"){
+                    $("#toggleText").fadeIn(function(){
+                    });
+                } else{
+                    $("#toggleText").fadeOut(function(){
+                    });
+                }
+            });
+            */
+           // Using a boolean
+           var showingText = true
+           $("#toggle").click(function(){
+               if(showingText){
+                   $("#toggleText").fadeOut(function(){
+                       showingText = false;
+                   });
+               } else{
+                   $("#toggleText").fadeIn();
+               }
+           });
+        </script>
+    </body>
+</html>
