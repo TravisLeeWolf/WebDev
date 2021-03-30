@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animating Content</title>
+        <!--Loading jQuery in to the page-->
+        <script src="jquery.min.js"></script>
+        <!--Below is the CSS code-->
+        <style type="text/css">
+            #circle{
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background-color: red;
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Animating Content</h2>
+        <p>Using jQuery we will animate our content to make it more visually appealing.</p>
+        <hr>
+        <p>Click the circle.</p>
+        <div id="circle"></div>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            $("#circle").click(function(){
+                $(this).css("background-color", "blue");
+                $(this).animate({
+                    width:"400px",
+                    height:"400px",
+                    margin: "150px"
+                }, 2000, function(){
+                    $(this).css("background-color", "red");
+                });
+                // Note the {} used to show it's an array of items to be animated
+            });
+        </script>
+    </body>
+</html>
