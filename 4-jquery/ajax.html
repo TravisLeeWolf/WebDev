@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX</title>
+        <!--Loading jQuery in to the page-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!--Below is the CSS code-->
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+        <h2>AJAX</h2>
+        <p>Using AJAX to use external files in real-time without reloading the page.</p>
+        <!--AJAX needs to be connected to the web to work-->
+        <hr>
+        <p id="data"></p>
+        <button id="button">Click me</button>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+           // data.txt can be found on GitHub Page
+           $.ajax("data.txt")
+           .done(function(data){
+               $("#data").html(data);
+           })
+           .fail(function(){
+               alert("Could not get data.")
+           });
+        </script>
+    </body>
+</html>
