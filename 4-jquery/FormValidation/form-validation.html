@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Validation</title>
+        <!--Loading jQuery in to the page-->
+        <script src="jquery.min.js"></script>
+        <!--Below is the CSS code-->
+        <style type="text/css">
+            .description{
+                font-size: 90%;
+            }
+            body{
+                font-family: Helvetica, sans-serif;
+                font-size: 130%;
+            }
+            input{
+                height: 40px;
+                padding: 5px;
+                font-size: 25px;
+                border-radius: 5px;
+                border: 1px solid grey;
+                width: 320px;
+            }
+            label{
+                position: relative;
+                top: 12px;
+                width: 200px;
+                float: left;
+            }
+            #topSpace{
+                padding-bottom: 10px;
+            }
+            #wrapper{
+                width: 600px;
+                margin: 0 auto;
+            }
+            .formElement{
+                margin-bottom: 10px;
+            }
+            #submitButton{
+                width: 150px;
+                margin-left: 200px;
+            }
+            #errorMessage{
+                color: red;
+                font-size: 90% !important;
+            }
+            #successMessage{
+                color: green;
+                font-size: 120% !important;
+                display: none;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="description">Form Validation</h2>
+        <p class="description">Using jQuery we will add code to validate form inputs.</p>
+        <hr>
+        <p id="topSpace"></p>
+        <div id="wrapper">
+            <p>This is a mock sign-up with validation using jQuery.</p>
+            <p>Please enter in your details in various ways to test.</p>
+            <div id="successMessage">Your sign up was successful!</div>
+            <div id="errorMessage"></div>
+            <div class="formElement">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="eg. youremail@gmail.com">
+            </div>
+            <div class="formElement">
+                <label for="phone">Telephone</label>
+                <input type="text" name="phone" id="phone" placeholder=" eg. 0123456789">
+            </div>
+            <div class="formElement">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="formElement">
+                <label for="passwordConfirm">Confirm Password</label>
+                <input type="password" name="passwordConfirm" id="passwordConfirm">
+            </div>
+            <div class="formElement">
+                <input type="submit" id="submitButton" value="Sign Up">
+            </div>
+        </div>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            // Code for checking an email address
+            function isEmail(email) {
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                return regex.test(email);
+            };
+            // When the submit button is clicked validate feilds
+            $("#submitButton").click(function(){
+                var errorMessage = "";
+                var fieldsMissing = "";
+                // To check if there are fields not filled in
+                if ($("#email").val() == ""){
+                    fieldsMissing += "<br>Email"
+                };
+                if ($("#phone").val() == ""){
+                    fieldsMissing += "<br>Telephone"
+                };
+                if ($("#password").val() == ""){
+                    fieldsMissing += "<br>Password"
+                };
+                if ($("#passwordConfirm").val() == ""){
+                    fieldsMissing += "<br>Confirm Password"
+                };
+                if (fieldsMissing != ""){
+                    errorMessage += "<p>The following fields are missing: " + fieldsMissing + " </p>";
+                };
+                // These are validations for the fields
+                if (isEmail($("#email").val()) == false){
+                    errorMessage += "<p>Your email address is not valid</p>";
+                };
+                if ($.isNumeric($("#phone").val()) == false){
+                    errorMessage += "<p>Your phone number is not valid</p>"
+                };
+                if ($("#password").val() != $("#passwordConfirm").val()){
+                    errorMessage += "<p>Your passwords do not match</p>"
+                };
+                // Send a message to the user of any error messages
+                if (errorMessage != ""){
+                    $("#errorMessage").html(errorMessage);
+                } else{
+                    $("#successMessage").show();
+                    $("#errorMessage").hide();
+                };
+            });
+        </script>
+    </body>
+</html>
