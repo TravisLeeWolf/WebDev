@@ -11,7 +11,7 @@
         <style type="text/css">
             #dragHorizontally{
                 width: 150px;
-                height: 300px;
+                height: 200px;
                 border-radius: 10px;
                 background-color: deepskyblue;
             }
@@ -21,6 +21,16 @@
                 border-radius: 5px;
                 background-color: pink;
                 text-align: center;
+            }
+            #resizable{
+                width: 200px;
+                height: 200px;
+                background-color: lightgreen;
+            }
+            #also{
+                width: 200px;
+                height: 200px;
+                background-color: palegoldenrod;
             }
         </style>
     </head>
@@ -33,10 +43,21 @@
         <div id="dragHorizontally">
             <div id="dragVertically">Drag me!</div>
         </div>
+        <p>The box below is resizable, give it a try.</p>
+        <div id="resizable">Click and drag to resize</div>
+        <div id="also">This is also resized</div>
         <!--Below is the JavaScript code-->
         <script type="text/javascript">
             $( "#dragHorizontally" ).draggable({ axis: "x"  });
             $( "#dragVertically" ).draggable({ containment: "parent" });
+            $( "#resizable" ).resizable({grid: 50 ,
+                                        alsoResize: "#also" ,
+                                        resize: function( event, ui ){
+                                            if ($( "#resizable" ).width() > 400){
+                                                alert("Woah there tiger")
+                                            }
+                                        }});
+            $( "#also" ).resizable();
         </script>
     </body>
 </html>
