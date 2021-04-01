@@ -94,6 +94,7 @@
             }, function(){
                 $( this ).removeClass("highlightedButton");
             });
+            var numberOfActivePanels = 2
             // Toggle color for a hovered item
             $( ".toggleButton" ).click(function(){
                 $( this ).toggleClass("active");
@@ -102,7 +103,7 @@
                 var panelId = $( this ).attr("id") + "Panel";
                 $( "#" + panelId ).toggleClass( "hidden" );
                 // Change panel width by number selected
-                var numberOfActivePanels = 4 - $( ".hidden" ).length;
+                numberOfActivePanels = 4 - $( ".hidden" ).length;
                 $( ".panel" ).width(($(window).width() / numberOfActivePanels) -15);
             });
             // Get the page height and set the textarea height
