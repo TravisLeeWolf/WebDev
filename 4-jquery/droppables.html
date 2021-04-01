@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery UI - Droppables</title>
+        <!--Loading jQuery in to the page-->
+        <script src="jquery.min.js"></script>
+        <!--This is for jQuery UI-->
+        <script src="jquery-ui/jquery-ui.js"></script>
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+        <!--Below is the CSS code-->
+        <style type="text/css">
+            #bigBox {
+                width: 250px;
+                height: 250px;
+                border-radius: 10px;
+                background-color: darkmagenta;
+                margin: 10px;
+                text-align: center;
+            }
+            #smallBox {
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
+                background-color: darkorange;
+                margin: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>jQuery UI - Droppables</h2>
+        <p>Using the jQuery UI function to drag around boxes.</p>
+        <hr>
+        <p>Drag the orange box into the purple box.</p>
+        <div id="bigBox"></div>
+        <div id="smallBox"></div>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            $( "#smallBox" ).draggable();
+            $( "#bigBox" ).droppable({
+                drop: function( event, ui ){
+                    alert( "Dropped!" );
+                }
+            });
+        </script>
+    </body>
+</html>
