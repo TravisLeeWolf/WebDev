@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Accordion & Sortables</title>
+        <!--Loading jQuery in to the page-->
+        <script src="jquery.min.js"></script>
+        <!--This is for jQuery UI-->
+        <script src="jquery-ui/jquery-ui.js"></script>
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+        <!--Below is the CSS code-->
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+        <h2>Accordion & Sortables</h2>
+        <p>Using jQuery UI to add visual elements.</p>
+        <hr>
+        <p>Click each item and it will adjust it's size like an accordion.</p>
+        <div id="accordion">
+            <h3>Artificial Intelligence</h3>
+            <div>
+                <p>A branch of computer science dealing with the simulation of intelligent behavior in computers.</p>
+            </div>
+            <h3>Web Development</h3>
+            <div>
+                <p>The work involved in developing a Web site for the Internet or an intranet.</p>
+            </div>
+            <h3>Algorithims</h3>
+            <div>
+                <p>A procedure for solving a mathematical problem in a finite number of steps that frequently involves repetition of an operation.</p>
+            </div>
+            <h3>Dog Life</h3>
+            <div>
+                <p>Pictures and stories of my cute dog and our adventures together.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <p>Below is a sortable list, click and drag to rearrange the list.</p>
+        <p>Grocery List</p>
+        <ul id="sortable">
+            <li>Milk</li>
+            <li>Bread</li>
+            <li>Eggs</li>
+            <li>Beef</li>
+            <li>Biscuits</li>
+        </ul>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+            $( "#accordion" ).accordion();
+            $( "#sortable" ).sortable();
+            $( "#sortable" ).disableSelection();
+        </script>
+    </body>
+</html>
