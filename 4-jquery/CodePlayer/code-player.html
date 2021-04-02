@@ -4,9 +4,6 @@
         <title>CodePlayer</title>
         <!--Loading jQuery in to the page-->
         <script src="jquery.min.js"></script>
-        <!--This is for jQuery UI-->
-        <script src="jquery-ui/jquery-ui.js"></script>
-        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
         <!--Below is the CSS code-->
         <style type="text/css">
             body{
@@ -81,13 +78,23 @@
             </div>
         </div>
         <div id="bodyContainer">
-            <textarea class="panel" id="htmlPanel">Hello World!</textarea>
+            <textarea class="panel" id="htmlPanel"><p id="paragraph">Hello World!</p></textarea>
             <textarea class="panel hidden" id="cssPanel">p{color: green;}</textarea>
-            <textarea class="panel hidden" id="javascriptPanel">alert("Hi there!")</textarea>
+            <textarea class="panel hidden" id="javascriptPanel">document.getElementById("paragraph").innerHTML = "It's working!"</textarea>
             <iframe class="panel" id="outputPanel"></iframe>
         </div>
         <!--Below is the JavaScript code-->
         <script type="text/javascript">
+            // To update the output
+            function updateOutput(){
+                // Get and display the HTML and CSS
+                $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + $("#cssPanel").val() + "</style></head><body>" + $("#htmlPanel").val() + "</body></html>");
+                // Get and display the JavaScript
+                document.getElementById( "outputPanel" ).contentWindow.eval($( "#javascriptPanel" ).val());
+                /* This applies to the page and not the panel
+                eval($( "#javascriptPanel" ).val());
+                */
+            };
             // Colors the buttons on and off hover
             $( ".toggleButton" ).hover(function(){
                 $( this ).addClass("highlightedButton");
@@ -110,9 +117,11 @@
             $( ".panel" ).height($(window).height() - $( "#header" ).height() - 25);
             // Changing panel class width to fit side by side
             $( ".panel" ).width(($(window).width() / numberOfActivePanels) -15);
+            // Update output panel on page load
+            updateOutput();
             // Adding our html code to the ouput panel and updating as we type
             $( "textarea" ).on( "change keyup paste", function(){
-                $( "iframe" ).contents().find( "html" ).html($( "#htmlPanel" ).val());
+                updateOutput();
             });
         </script>
     </body>
