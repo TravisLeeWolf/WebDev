@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <title>Habit Tracker App</title>
+
+    <!--CDN for FontAwesome icons-->
+    <script src="https://kit.fontawesome.com/405c167148.js" crossorigin="anonymous"></script>
+    
     <!--CSS here-->
     <style type="text/css">
       body{
@@ -79,12 +83,35 @@
               </div>
             </div>
           </form>
-
-        </div>        
-        <h3 id="about">About section</h3>
-        <p>Add the about section here</p>
-        <h3 id="download">Download section</h3>
-        <p>Add the download section here</p>
+        </div>
+        <div id="about">
+          <!--Section for features using cards-->
+          <div class="card-deck">
+              <div class="card">
+                <img src="fast.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5><i class="fas fa-rocket"></i> Fast</h5>
+                  <p>Designed in a way that requires minimal clicks to track your habits, making it more likely you'll keep it going.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="robust.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5><i class="fas fa-cogs"></i> Robust</h5>
+                  <p>To ensure you keep up with your habits we have a variety of options to remind you and keep you motivated.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="rewarding.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5><i class="fas fa-award"></i> Rewarding</h5>
+                  <p>Get achievements for sticking to your habits, you can set what you want as a reward and have the app keep in your mind.</p>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div id="download" class="jumbotron ">
+          <!--Final download section-->
       </div>
       <!-- jQuery and Bootstrap Bundle (includes Popper) -->
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
