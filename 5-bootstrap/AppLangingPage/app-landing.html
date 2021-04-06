@@ -22,12 +22,21 @@
         margin-top: 50px;
         margin-bottom: 50px;
         text-align: center;
+
+      }
+      #home{
         background-image: url("california.jpg");
         background-size: cover;
+      }
+      #download{
+        background-color: dodgerblue;
       }
       .custom-centered{
         margin: 0 auto;
         width: 340px;
+      }
+      .app-store{
+        max-width: 150px;
       }
     </style>
   </head>
@@ -110,8 +119,22 @@
               </div>
           </div>
         </div>
-        <div id="download" class="jumbotron ">
+        <div id="download" class="jumbotron jumbotron-fluid">
           <!--Final download section-->
+          <div class="container">
+            <h1>Download the app!</h1>
+            <p><strong>The change starts now</strong></p>
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <img src="google.png" class="app-store">
+                </div>
+                <div class="col-6">
+                  <img src="apple.png" class="app-store">
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
       <!-- jQuery and Bootstrap Bundle (includes Popper) -->
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
