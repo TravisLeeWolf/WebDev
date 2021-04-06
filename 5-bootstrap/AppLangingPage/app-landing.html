@@ -33,10 +33,19 @@
       }
       .custom-centered{
         margin: 0 auto;
-        width: 340px;
+        width: 440px;
       }
       .app-store{
         max-width: 150px;
+      }
+      #email{
+        width: 300px;
+      }
+      #appSummary{
+        text-align: center;
+        margin-top: 75px;
+        margin-bottom: 75px;
+        width: 300px;
       }
     </style>
   </head>
@@ -63,7 +72,7 @@
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="email" placeholder="Email">
             <input class="form-control mr-sm-2" type="password" placeholder="Password">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Sign Up</button> 
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Login</button> 
           </form>
         </div>
       </nav>
@@ -95,6 +104,12 @@
         </div>
         <div id="about">
           <!--Section for features using cards-->
+          <div class="container">
+            <div class="row" id="appSummary">
+              <h1>App Features</h1>
+              <p class="lead">Let us help you transform your life!</p>
+            </div>
+          </div>
           <div class="card-deck">
               <div class="card">
                 <img src="fast.jpg" class="card-img-top">
