@@ -13,8 +13,17 @@
     <style type="text/css">
       body{
         position: relative;
-        padding: 20px;
-        padding-top: 80px;
+      }
+      .jumbotron{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        background-image: url("california.jpg");
+        background-size: cover;
+      }
+      .custom-centered{
+        margin: 0 auto;
+        width: 340px;
       }
     </style>
   </head>
@@ -47,8 +56,31 @@
       </nav>
       <div data-spy="scroll" data-target="myNavbar" data-offset="0">
         <!-- This is the content that the scrollspy will look for -->
-        <h3 id="home">Hero section</h3>
-        <p>Add the hero section here</p>
+        <div id="home" class="jumbotron jumbotron-fluid">
+          <!--This is for the jumbotron-->
+          <h1 class="display-4">Habit Tracker App!</h1>
+          <p class="lead">Small habits lead to big things, change your life one habit at a time.</p>
+          <p class="lead">A simple way to keep track of your habits and stay focused on your goals.</p>
+          <hr class="my-4">
+          <p>Get started on your journey today, sign up for the newsletter now!</p>
+          <form class="custom-centered">
+            <div class="form-row align-items-center">
+              <div class="col-auto">
+                <label class="sr-only" for="email">Email</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">@</div>
+                  </div>
+                  <input type="text" class="form-control" id="email" placeholder="Your Email">
+                </div>
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-2">Sign Up</button>
+              </div>
+            </div>
+          </form>
+
+        </div>        
         <h3 id="about">About section</h3>
         <p>Add the about section here</p>
         <h3 id="download">Download section</h3>
