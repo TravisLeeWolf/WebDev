@@ -1,3 +1,22 @@
+<?php
+  if ($_GET['city']){
+
+      //Remove spaces from city
+      $_GET['city'] = str_replace(' ', '', $_GET['city']);
+      // Geting content from the other website
+      $forecastPage = file_get_contents("https://www.weather-forecast.com/locations/".$_GET['city']."/forecasts/latest");
+      
+      // Adding page to an array and cutting using explode
+      $pageArray = explode('(1&ndash;3 days)</div><p class="b-forecast__table-description-content"><span class="phrase">', $forecastPage);
+      $secondPageArray = explode('</span></p></td>', $pageArray[1]);
+      
+      // This should be the output text
+      $weather = $secondPageArray[0];
+
+  }
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,21 +31,27 @@
 
     <!--CSS here-->
     <style type="text/css">
-
+        /*
         html{
             background: url(weather_background.jpg) no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-        }
+        }*/
         body{
             background: none;
         }
         .container{
             text-align: center;
-            margin-top: 200px;
+            margin-top: 150px;
             width: 500px;
+        }
+        input{
+          margin: 20px 0;
+        }
+        #weather{
+          margin-top: 20px;
         }
     </style>
   </head>
@@ -41,6 +66,15 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+          <div id="weather">
+            <?php
+              if ($weather){
+                echo '<div class="alert alert-success" role="alert">'
+                  .$weather.
+                  '</div>';
+              }
+            ?>
+          </div>
     </div>
 
 
