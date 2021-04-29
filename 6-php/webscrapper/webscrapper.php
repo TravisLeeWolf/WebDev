@@ -1,17 +1,37 @@
 <?php
-  if ($_GET['city']){
+
+  $weather = "";
+  $error = "";
+
+  if (array_key_exists('city',$_GET)){
 
       //Remove spaces from city
-      $_GET['city'] = str_replace(' ', '', $_GET['city']);
+      $city = str_replace(' ', '', $_GET['city']);
       // Geting content from the other website
-      $forecastPage = file_get_contents("https://www.weather-forecast.com/locations/".$_GET['city']."/forecasts/latest");
+      if (file_get_contents('http://www.weather-forecast.com/locations/'.$city.'/forecasts/latest')){
+        $forecastPage = file_get_contents('http://www.weather-forecast.com/locations/'.$city.'/forecasts/latest');
+        // Adding page to an array and cutting using explode
+        $pageArray = explode('(1&ndash;3 days)</div><p class="b-forecast__table-description-content"><span class="phrase">', $forecastPage);
+        
+        // Dealing with website changes
+        if (sizeof($pageArray) > 1){
+          $secondPageArray = explode('</span></p></td>', $pageArray[1]);
+          if (sizeof($pageArray) >1){
+              // This should be the output text
+              $weather = $secondPageArray[0];
+          } else{
+            $error = "Issue with the website.";
+          }
+          
+        } else{
+          $error = "Issue with the website.";
+        }
+      } else{
+        $error = "That location could not be found.";
+      }
       
-      // Adding page to an array and cutting using explode
-      $pageArray = explode('(1&ndash;3 days)</div><p class="b-forecast__table-description-content"><span class="phrase">', $forecastPage);
-      $secondPageArray = explode('</span></p></td>', $pageArray[1]);
       
-      // This should be the output text
-      $weather = $secondPageArray[0];
+      
 
   }
 ?>
@@ -31,14 +51,13 @@
 
     <!--CSS here-->
     <style type="text/css">
-        /*
         html{
-            background: url(weather_background.jpg) no-repeat center center fixed;
+            background: url(weather_background.jpg) no-repeat center center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-        }*/
+        }
         body{
             background: none;
         }
@@ -62,16 +81,17 @@
         <form>
             <div class="form-group">
               <label for="city">Enter the name of a city.</label>
-              <input type="text" class="form-control" id="city" name="city" placeholder="Eg. California, Hiroshima">
+              <input type="text" class="form-control" id="city" name="city" placeholder="Eg. California, Hiroshima" value="<?php if(array_key_exists('city',$_GET)){echo $_GET['city'];}?>">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
           <div id="weather">
             <?php
               if ($weather){
-                echo '<div class="alert alert-success" role="alert">'
-                  .$weather.
-                  '</div>';
+                echo '<div class="alert alert-success" role="alert">'.$weather.'</div>';
+              }
+              if ($error){
+                echo '<div class="alert alert-danger" role="alert">'.$error.'</div>';
               }
             ?>
           </div>
