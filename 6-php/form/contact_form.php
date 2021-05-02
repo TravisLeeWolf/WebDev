@@ -53,7 +53,7 @@
     <div class="container">
         <h1>Get in touch!</h1>
         <!-- Error div to display our error messages -->
-        <div id="error"><? echo $error.$successMessage; ?></div>
+        <div id="error"><?php echo $error.$successMessage; ?></div>
         <form method="post">
           <div class="form-group">
             <label for="email">Email address</label>
