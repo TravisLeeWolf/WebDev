@@ -5,7 +5,9 @@ $username = "username";
 $dbpass = "password";
 $dbname = "database";
 
-
+// Keeping the session going
+session_start();
+echo $_SESSION['username'];
 
 // Check if data has been inputted
 if (array_key_exists('name', $_POST) OR array_key_exists('email', $_POST) OR array_key_exists('password', $_POST)){
@@ -33,7 +35,8 @@ if (array_key_exists('name', $_POST) OR array_key_exists('email', $_POST) OR arr
       } else{
         $query = "INSERT INTO `users` (`name`, `email`, `password`) VALUES ('".mysqli_real_escape_string($conn, $_POST['name'])."', '".mysqli_real_escape_string($conn, $_POST['email'])."', '".mysqli_real_escape_string($conn, $_POST['password'])."')";
         if (mysqli_query($conn, $query)){
-          echo "<p>You have been signed up!</p>";
+          $_SESSION['email'] = $_POST['email'];
+          header("Location: session.php");
         } else{
           echo "<p>There was a problem signing up, please try again later.</p>";
         }
