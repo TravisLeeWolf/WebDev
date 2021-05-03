@@ -7,7 +7,6 @@ $dbname = "database";
 
 // Keeping the session going
 session_start();
-echo $_SESSION['username'];
 
 // Check if data has been inputted
 if (array_key_exists('name', $_POST) OR array_key_exists('email', $_POST) OR array_key_exists('password', $_POST)){
