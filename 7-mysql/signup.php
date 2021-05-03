@@ -5,49 +5,39 @@ $username = "username";
 $dbpass = "password";
 $dbname = "database";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $dbpass, $dbname);
 
-// Check connection
-if (!$conn) {
+
+// Check if data has been inputted
+if (array_key_exists('name', $_POST) OR array_key_exists('email', $_POST) OR array_key_exists('password', $_POST)){
+
+  // Connect to database
+  // Create connection
+  $conn = mysqli_connect($servername, $username, $dbpass, $dbname);
+
+  // Check connection
+  if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
-}
-
-// PHP validation
-$error = "";
-$successMessage = "";
-
-if ($_POST){
-  // Server side validation of fields
-  if (!$_POST["name"]){
-    $error .= "A name is required.<br>";
-  }
-  if (!$_POST["email"]){
-    $error .= "An email address is required.<br>";
-  }
-  if (!$_POST["password"]){
-    $error .= "A password is required.<br>";
-  }
-  if ($_POST["email"] && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false) {
-    $error .= "An email address is not valid.<br>";
   }
 
-  // Error message
-  if ($error != ""){
-    $error = '<div class="alert alert-danger" role="alert"><p><strong>There were error(s) in your form:</strong></p>' . $error . '</div>';
-  } else{
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    
-    // Check database for same email
-    $checkExists = "SELECT `email` FROM users WHERE email = '".$email."'";
-    if (mysqli_num_rows(mysqli_query($conn, $checkExists)) > 0){
-      $error .= "This email address already exists.";
-    } else{
-      $query = "INSERT INTO `users` (`name`, `email`, `password`) VALUES('".$name."','".$email."','".$password."')";
-      $successMessage = '<div class="alert alert-success" role="alert">Your details have been recieved, signed up!.</div>';
-    }
+  if ($_POST['name'] == ''){
+      echo "<p>A name is required.</p>";
+  } elseif ($_POST['email'] == ''){
+      echo "<p>An email address is required.</p>";
+  } elseif ($_POST['password'] == ''){
+      echo "<p>A password is required.</p>";
+  } else { 
+      $query = "SELECT `id` FROM `users` WHERE email = '".mysqli_real_escape_string($conn, $_POST['email'])."'";
+      $result = mysqli_query($conn, $query);
+      if (mysqli_num_rows($result) > 0){
+        echo "<p>That email address has already been taken.</p>";
+      } else{
+        $query = "INSERT INTO `users` (`name`, `email`, `password`) VALUES ('".mysqli_real_escape_string($conn, $_POST['name'])."', '".mysqli_real_escape_string($conn, $_POST['email'])."', '".mysqli_real_escape_string($conn, $_POST['password'])."')";
+        if (mysqli_query($conn, $query)){
+          echo "<p>You have been signed up!</p>";
+        } else{
+          echo "<p>There was a problem signing up, please try again later.</p>";
+        }
+      }
   }
 }
 
@@ -74,38 +64,21 @@ mysqli_close($conn);
         width: 800px;
         height: 500px;
         margin: 0 auto;
-        padding: 20px;
         text-align: center;
     }
     </style>
   </head>
   <body>
       <!-- HTML content -->
-      <div class="jumbotron" id="main">
-        <h1 class="display-4">Sign up for news!</h1>
-        <p class="lead">This is just a mock sign-up to check database functionality.</p>
-        <hr class="my-4">
-        <form>
-        <div class="form-group">
-              <label for="name">First Name</label>
-              <input type="text" class="form-control" id="name" name="name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" name="email">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-          <div id="error"><? echo $error.$successMessage; ?></div>
-      </div>
-
-    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
+      <h2>Simple Sign Up</h2>
+      <p>This is a simple sign up page using PHP and mySQL</p>
+      <hr>
+      <!--Here method is VERY IMPORTANT to signal to php it will be used!-->
+      <form method="post">
+        <input name="name" type="text" placeholder="First Name">
+        <input name="email" type="text" placeholder="Email Address">
+        <input name="password" type="password" placeholder="Password">
+        <input type="submit" value="Sign Up">
+      </form>
   </body>
 </html>
