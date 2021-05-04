@@ -13,6 +13,9 @@
     $row['id'] = 73;
     echo md5(md5($row['id'])."password");
 
+    // Some line breaks for a cleaner output:
+    echo "<br><br>";
+
     // Note there are still higher forms of security available.
 
     /* The PHP5.5 hash method below */
