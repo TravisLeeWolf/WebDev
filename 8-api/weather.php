@@ -3,10 +3,27 @@
   $weather = "";
   $error = "";
 
-  if ($_GET['city']){
+  function file_get_contents_curl($url) {
+    $ch = curl_init();
 
-    $urlContents = file_get_contents("api.openweathermap.org/data/2.5/weather?q=".urlencode($_GET['city'])."&appid=a2ef30ffa2ed4f82ce9096dbd80467d9");
+    curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);       
+
+    $data = curl_exec($ch);
+    curl_close($ch);
+
+    return $data;
+  }
+
+
+  if ($_GET['city']){
+    $urlContents = file_get_contents_curl("api.openweathermap.org/data/2.5/weather?q=".urlencode($_GET['city'])."&appid=a2ef30ffa2ed4f82ce9096dbd80467d9");
     // urlencode() takes a string and adds code for characters like space and so on
+
+
     $weatherArray = json_decode($urlContents, true);
     
     // Check if valid city

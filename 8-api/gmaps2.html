@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+      }
+    </style>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Fuji
+        const fuji = { lat: 35.360638, lng: 138.729050 };
+        // The map, centered at Fuji
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 8,
+          center: fuji,
+        });
+        // The marker, positioned at Fuji
+        const marker = new google.maps.Marker({
+          position: fuji,
+          map: map,
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <p>Mount Fuji - Japan</p>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRHvS4s7q88xPI1jKWNp8aQER095OuPJs&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
