@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML 5 Forms</title>
+    </head>
+    <body>
+        <h2>HTML 5 Forms</h2>
+        <p>Getting more functionality out of HTML by using HTML 5 features.</p>
+        
+        <!-- You can add an action on submit to a form so where the data will be processed -->
+        <form id="myForm" action="processform.php">
+            <!-- Autofocus sets which input the users focus will be set on, meaning it would be the first highlighted  -->
+            <p><input type="text" placeholder="Insert name here" autofocus></p>
+
+            <!-- This stops the browser from autocompeting this info, useful for sensitve info -->
+            <p><input type="text" placeholder="Autocomplete is off" autocomplete="off"></p>
+
+            <!-- As basic form contol using this will highlight that this input is required when submit is pressed -->
+            <p><input type="text" placeholder="This feild is required" required></p>
+
+            <p><input type="email" placeholder="Only valid emails"></p>
+
+            <!-- Using patterns you can specify the type of input you require, using RegEx -->
+            <p><input type="text" placeholder="Only alpha-numeric" pattern="[a-zA-Z0-9]+"></p>
+
+            <br>
+            <!-- Autocomplete allows you to use a data list that when typing will try to match an autocomplete the input -->
+            <p>What Japanese car maker do you like?</p>
+            <datalist id="makers">
+                <option value="Nissan">Nissan</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Mazda">Mazda</option>
+                <option value="Honda">Honda</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Subaru">Subaru</option>
+            </datalist>
+            <p><input type="text" placeholder="This will autocomplete" list="makers"></p>
+
+            <!-- You can add a specific action to each submit button so that they can do different things -->
+            <p><input type="submit" value="Submit to Process2" formaction="processform2.php" formmethod="post"></p>
+        </form>
+        <br>
+        <!-- You can also have an input submit to a form without being inside that form -->
+        <p><input type="text" form="myForm" placeholder="This still goes to the above"></p>
+        <!--Below is the JavaScript code-->
+        <br>
+        <p>Multiple file upload: <input type="file" multiple></p>
+        <script type="text/javascript">
+        </script>
+    </body>
+</html>

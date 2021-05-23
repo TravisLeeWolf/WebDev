@@ -4,9 +4,9 @@
 
     // Database details
     $dbHost = "localhost";
-    $dbUser = "username";
-    $dbPass = "password";
-    $dbName = "database";
+    $dbUser = "travis5_webdev";
+    $dbPass = "L3tsl3arn";
+    $dbName = "travis5_user";
 
     $error = "";
 
@@ -40,17 +40,17 @@
             if ($_POST['signUp'] == 1){
             
                 // Check if existing user
-                $query = "SELECT id FROM `users` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."' LIMIT 1";
+                $query = "SELECT id FROM `diary` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."' LIMIT 1";
                 $result = mysqli_query($link, $query);
                 if (mysqli_num_rows($result) > 0){
                     $error = "That email address is already taken.";
                 } else{
-                    $query = "INSERT INTO `users` (`email`, `password`) VALUES ('".mysqli_real_escape_string($link, $_POST['email'])."', '".mysqli_real_escape_string($link, $_POST['password'])."')";
+                    $query = "INSERT INTO `diary` (`email`, `password`, `text`) VALUES ('".mysqli_real_escape_string($link, $_POST['email'])."', '".mysqli_real_escape_string($link, $_POST['password'])."',NULL)";
                     if (mysqli_query($link, $query)){
                         $error = "<p>Could not sign you up, please try again later.</p>";
                     } else{
                         // Making the users password a hash
-                        $query = "UPDATE `users` SET password = '".md5(md5(mysqli_insert_id($link)).$_POST['password'])."' WHERE id = ".mysqli_insert_id($link)." LIMIT 1";
+                        $query = "UPDATE `diary` SET password = '".md5(md5(mysqli_insert_id($link)).$_POST['password'])."' WHERE id = ".mysqli_insert_id($link)." LIMIT 1";
                         mysqli_query($link, $query);
 
                         $_SESSION['id'] = mysqli_insert_id($link);
@@ -62,7 +62,7 @@
                     }
                 }
             } else { 
-                $query = "SELECT id FROM `users` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."'";
+                $query = "SELECT id FROM `diary` WHERE email = '".mysqli_real_escape_string($link, $_POST['email'])."'";
                 $result = mysqli_query($link, $query);
 
                 $row = mysqli_fetch_array($result);
@@ -119,7 +119,7 @@
             margin-top: 150px;
         }
 
-        #logInForm{
+        .hideMe{
             display: none;
         }
     
@@ -153,7 +153,7 @@
         <p class="lead"><a href="javascript:switchForms()">Log In</a></p>
     </form>
 
-    <form method="post" id="logInForm">
+    <form method="post" id="logInForm" class="hideMe">
         <p class="lead">Log in with your username and password.</p>
         <div class="form-group">
             <label for="email">Email Address</label>
@@ -181,9 +181,11 @@
     <!-- Custom JS -->
     <script type="text/javascript">
 
-        function swtichForms(){
-            $("signUpForm").toggle();
-            $("logInForm").toggle();
+        function switchForms(){
+            var signUp = document.getElementById("signUpForm");
+            var logIn = document.getElementById("logInForm");
+            signUp.classList.toggle("hideMe");
+            logIn.classList.toggle("hideMe");
         }
 
     </script>

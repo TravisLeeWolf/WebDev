@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="app.min.css">
+    <style>
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="app-page" data-page="home">
+      <div class="app-topbar blue">
+        <div class="app-title">Email Sender</div>
+      </div>
+      <div class="app-content">
+        <p class="app-section">
+          Click below to send an email!
+        </p>
+
+        <div class="app-section">
+					<div class="app-button" data-target="sendEmail">Lists</div>
+				</div>
+  
+        <div class="app-section">
+          <div class="app-button" data-target="sendEmail">Send to new user</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="sendEmail">
+		<div class="app-topbar blue">
+			<div class="app-title">Send Email</div>
+			<div class="right app-button" data-back>Back</div>
+		</div>
+
+		<div class="app-content">
+
+			<div class="app-section">
+				<input class="app-input" id="senderEmail" placeholder="Sender Email Adddress">
+			</div>
+
+			<div class="app-section">
+				<input class="app-input" id="recipientEmail" placeholder="Recipient Email Adddress">
+			</div>
+
+			<form class="app-section">
+				<input class="app-input" name="subject" placeholder="Subject">
+				<textarea class="app-input" name="message" placeholder="Message"></textarea>
+				<div class="app-button green app-submit" id="sendButton">Send</div>
+			</form>
+		</div>
+	</div>
+
+    <script src="zepto.js"></script>
+    <script src="app.min.js"></script>
+    <script>
+      
+
+      App.controller('home', function (page) {
+		// Add code
+      });
+
+	  App.controller('sendEmail', function (page) {
+			$(page).find('sendButton')
+						.clickable()
+						.on('click', function () {
+							alert("working");
+						});
+	  });
+
+
+      try {
+        App.restore();
+      } catch (err) {
+        App.load('home');
+      }
+    </script>
+	<!-- some kik goodness for demos -->
+	<script src="//cdn.kik.com/kik/1.0.9/kik.js"></script>
+  </body>
+</html>
