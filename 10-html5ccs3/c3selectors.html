@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS 3 Advanced Selectors</title>
+        <style type="text/css">
+            h1{
+                color: navy;
+            }
+            .green{
+                color: darkgreen;
+            }
+            #purple{
+                font-size: small;
+            }
+            /*The above are the conventional selectors we use in CSS*/
+            /*div p{} --- selects only p tags in the div*/
+            h3 ~ p{
+                text-decoration: underline;
+            }
+            h3 + p{
+                color: red;
+            }
+            a[target]{
+                color: orange;
+            }
+            a[href="https://duckduckgo.com/"]{
+                font-size: 20px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>CSS 3 Advanced Selectors</h2>
+        <p>Content description</p>
+        <hr>
+        <h1>This is a heading</h1>
+        <div>
+            <p class="green">This is a paragraph</p>
+            <a id="purple" target="_blank" href="">Only links with a blank target are orange</a>
+        </div>
+        <div>
+            <h3>Using the h3 tag to select all p tags in this div</h3>
+            <p>Only this paragraph will have a color change</p>
+            <p>Another paragraph in another div</p>
+        </div>
+        <p>This paragraph is outside the above div</p>
+        <a href="https://duckduckgo.com/">Only links containing this website are bigger</a>
+        <!--Below is the JavaScript code-->
+        <script type="text/javascript">
+        </script>
+    </body>
+</html>
