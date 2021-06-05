@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS3 - Layout & Calculations</title>
+        
+        <style type="text/css">
+        /*Add CSS stuff here*/
+            #multi-column{
+                column-count: 3;
+                column-gap: 40px;
+                column-rule-style: solid;
+                column-rule-width: 1px;
+                column-rule-color: darkblue;
+            }
+            h2{
+                column-span: all;
+            }
+            header{
+                width: 100%;
+                height: 50px;
+                background-color: darkblue;
+            }
+            body{
+                margin: 0;
+            }
+            /*#container{
+                width: 100%;
+                background-color: red;
+                height: calc(100% - 50px);
+                position: absolute;
+            }*/
+            .flexbox-container{
+                display: flex;
+                width: 100%;
+                height: 250px;
+                background-color: blueviolet;
+            }
+            .flexbox-item{
+                background-color: orange;
+                width: 100%;
+                height: 100px;
+                margin: 10px;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>CSS3 - Layout & Calculations</h2>
+        <p>Getting a better layout with CSS3</p>
+        <hr>
+        <!--Add HTML stuff here-->
+        <header></header>
+        <div id="container"></div>
+            <div class="flexbox-container">
+                <div class="flexbox-item">Item 1</div>
+                <div class="flexbox-item" style="border: 5px solid yellow;">Item 2</div>
+                <div class="flexbox-item">Item 3</div>
+                <div class="flexbox-item" style="border: 5px solid yellow;">Item 4</div>
+                <div class="flexbox-item">Item 5</div>
+                <div class="flexbox-item" style="border: 5px solid yellow;">Item 6</div>
+            </div>
+        <div id="multi-column">
+            <h2>For Latin Readers</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer hendrerit facilisis fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate porttitor est. In eleifend est a sem euismod auctor. Nunc at ultrices risus, nec rutrum augue. Proin ac nisl tincidunt, eleifend nisl a, tempus mauris. Ut ac lectus nec dolor maximus suscipit. Ut odio lorem, porta non finibus in, vulputate non risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed faucibus scelerisque ex congue iaculis. In vitae orci sed eros efficitur convallis at eget metus. Aenean aliquam efficitur hendrerit. Praesent lobortis orci risus, eget imperdiet enim finibus ac. Cras sed congue ex.<br><br>
+
+            Nulla vel posuere nibh. Nullam auctor sagittis dolor, in iaculis nulla cursus ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque viverra eu justo quis volutpat. Pellentesque posuere egestas nulla et ultrices. Pellentesque felis ipsum, mattis non lacus pretium, egestas auctor felis. Quisque tincidunt ac mi vel interdum. Aliquam feugiat ex risus, sed varius quam vehicula sit amet. Aliquam erat volutpat. Donec viverra orci at sapien auctor pharetra. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit elit vehicula vehicula consectetur. In nec mauris nisl.<br><br>
+            
+            Donec tempor velit nec justo vulputate dapibus. Maecenas suscipit sollicitudin congue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus rutrum eros sed nisi pulvinar iaculis. Sed malesuada eu nulla in viverra. Integer mauris eros, pharetra quis diam ut, sollicitudin aliquam neque. Sed dui sem, facilisis vel dictum at, malesuada nec dolor. Aenean efficitur tempor convallis. Duis in nisi a dolor convallis iaculis eu sit amet ex. Nulla feugiat lacinia risus, non tristique nisi fringilla nec.</div>
+
+
+
+        <script type="text/javascript">
+        // Add JS stuff here
+
+
+
+        </script>
+    </body>
+</html>
