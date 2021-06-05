@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Title text here</title>
+        <title>CSS3 - Pseudo Classes</title>
         <style type="text/css">
+        a:hover{
+            color: green;
+        }
+        input:focus{
+            background-color: lightblue;
+        }
+        p:first-child{
+            color: brown;
+        }
+        p:last-child{
+            color: coral;
+        }
+        h3:first-of-type{
+            font-size: 80%;
+        }
+        tr:nth-child(2n){
+            background-color: lavender;
+            /*  nth-last-child - to count backwards
+                nth-of-type - only count a certain type
+            */
+        }
+        h2:not(.black){
+            color: blue;
+        }
+        p::first-letter{
+            font-size: 150%;
+            /*p:first-line - is also allowed*/
+        }
+        a::after{
+            content: " ("attr(href)")";
+        }
         </style>
     </head>
     <body>
-        <h2>Title text here</h2>
-        <p>Content description</p>
+        <h2>CSS3 - Pseudo Classes</h2>
+        <p>Adding more visual functionality to our elements</p>
+        <hr>
+        <a href="https://duckduckgo.com/">Hover over this link</a>
+        <p></p>
+        This input changes color when focused: <input type="text">
+        <div>
+            <p>This is the first paragraph in a div</p>
+            <p>The second paragraph in a div</p>
+            <h3>This is the only h3 tag in this div</h3>
+            <p>The last paragraph in a div</p>
+        </div>
+        <table>
+            <tr><td>Milk</td></tr>
+            <tr><td>Eggs</td></tr>
+            <tr><td>Bread</td></tr>
+            <tr><td>Butter</td></tr>
+            <tr><td>Chocolate</td></tr>
+            <tr><td>Flour</td></tr>
+        </table>
         <!--Below is the JavaScript code-->
         <script type="text/javascript">
         </script>
