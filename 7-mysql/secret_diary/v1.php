@@ -16,7 +16,7 @@
         setcookie("id", "", time() - 60);
         $_COOKIE["id"] = "";
     } elseif ((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR (array_key_exists("id", $_COOKIE) AND $_COOKIE['id'])){
-        header("Location: v1diary.php");
+        header("Location: diary-v1.php");
     }
 
     if(array_key_exists("submit", $_POST)){
@@ -58,7 +58,7 @@
                             setcookie("id", mysqli_insert_id($link), time() + 60*60);
                         }
 
-                        header("Location: v1diary.php");
+                        header("Location: diary-v1.php");
                     }
                 }
             } else { 
@@ -74,7 +74,7 @@
                             setcookie("id", $row['id'], time() + 60*60);
                         }
 
-                        header("Location: v1diary.php");
+                        header("Location: diary-v1.php");
                     } else{
                         $error = "That email/password combination could not be found.";
                     }

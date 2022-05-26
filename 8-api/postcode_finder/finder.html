@@ -39,7 +39,7 @@
     $("#find-postcode").click(function(e){
         e.preventDefault();
         $.ajax({
-            url : "https://maps.googleapis.com/maps/api/geocode/json?address=" + encodeURIComponent($("#address").val()) + "&key=AIzaSyDRHvS4s7q88xPI1jKWNp8aQER095OuPJs",
+            url : "https://maps.googleapis.com/maps/api/geocode/json?address=" + encodeURIComponent($("#address").val()) + "&key=api_key",
             type : "GET",
             success : function (data){
                 if (data["status"] != "OK"){
