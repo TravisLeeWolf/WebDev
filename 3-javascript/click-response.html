@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Responding to a click</title>
-    </head>
-    <body>
-        <h2>Responding to a click</h2>
-        <p>Here we will use JavaScript to respond to user interactions.</p>
-        <button id="my_button">Send alert</button>
-        <hr>
-        <p id="change_text">This text will be changed when the button below is clicked.</p>
-        <button id="change_button">Change text</button>
+  <head>
+    <title>Responding to a click</title>
+  </head>
+  <body>
+    <h2>Responding to a click</h2>
+    <p>Here we will use JavaScript to respond to user interactions.</p>
+    <button id="my_button">Send alert</button>
+    <hr />
+    <p id="change_text">
+      This text will be changed when the button below is clicked.
+    </p>
+    <button id="change_button">Change text</button>
 
-        <script type="text/javascript">
-            document.getElementById("my_button").onclick = function(){
-                alert("Button clicked!");
-            }
-            document.getElementById("change_button").onclick = function(){
-                document.getElementById("change_text").innerHTML = "You've changed the text by clicking the button!";
-            }
-        </script>
-    </body>
+    <script type="text/javascript">
+      document.getElementById("my_button").onclick = function () {
+        alert("Button clicked!");
+      };
+      document.getElementById("change_button").onclick = function () {
+        document.getElementById("change_text").innerHTML =
+          "You've changed the text by clicking the button!";
+      };
+    </script>
+  </body>
 </html>

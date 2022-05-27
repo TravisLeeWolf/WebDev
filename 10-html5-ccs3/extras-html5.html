@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HTML 5 Extras</title>
-        <!--This alows you to create your own tags-->
-        <script>document.createElement("container");</script>
-        <!--Below is the CSS code-->
-        <style>
-            article{
-                color: royalblue;
-            }
-            /*Below are other useful elements for your blog or website*/
-            header, footer, article, section, nav, menu{
-                display: block;
-            }
-        </style>
-    </head>
-    <body>
-        <h2>HTML 5 Extras</h2>
-        <p>Some useful things</p>
+  <head>
+    <title>HTML 5 Extras</title>
+    <!--This alows you to create your own tags-->
+    <script>
+      document.createElement("container");
+    </script>
+    <!--Below is the CSS code-->
+    <style>
+      article {
+        color: royalblue;
+      }
+      /*Below are other useful elements for your blog or website*/
+      header,
+      footer,
+      article,
+      section,
+      nav,
+      menu {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>HTML 5 Extras</h2>
+    <p>Some useful things</p>
 
-        <!--Articles are aimed to separate between div tags, so you can focus on page content-->
-        <article>
-            This is an article tag.
-        </article>
-        <container>
-            This is a self created tag.
-        </container>
-        <!--Figure allows you to add captions easily to media-->
-        <figure>
-            <img data-description="Porsche" id="car" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Porsche_911_halbiert_Seite.jpg/640px-Porsche_911_halbiert_Seite.jpg" alt="Sectioned Car">
-            <!--Note for HTML 5, an image tag needs an alt attribute-->
-            <figcaption>
-                <p><mark>Sectioned Car</mark> <small>(Wikipedia)</small></p>
-            </figcaption>
-        </figure>
-        <br>
-        <p>Below is a slider, you can set the min, max and step values.</p>
-        <input type="range" min="0" max="100" step="10">
-        <br>
-        <p>Lastly, you can add an editable attribute to any tag to allow the user to edit.</p>
-        <ul contenteditable="true">
-            <li>You can edit this list!</li>
-        </ul>
-        <!--Below is the JavaScript code-->
-        <script>
-            // Get the data description from a tag
-            //alert(document.getElementById("car").getAttribute("data-description"));
-        </script>
-    </body>
+    <!--Articles are aimed to separate between div tags, so you can focus on page content-->
+    <article>This is an article tag.</article>
+    <container> This is a self created tag. </container>
+    <!--Figure allows you to add captions easily to media-->
+    <figure>
+      <img
+        data-description="Porsche"
+        id="car"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Porsche_911_halbiert_Seite.jpg/640px-Porsche_911_halbiert_Seite.jpg"
+        alt="Sectioned Car"
+      />
+      <!--Note for HTML 5, an image tag needs an alt attribute-->
+      <figcaption>
+        <p><mark>Sectioned Car</mark> <small>(Wikipedia)</small></p>
+      </figcaption>
+    </figure>
+    <br />
+    <p>Below is a slider, you can set the min, max and step values.</p>
+    <input type="range" min="0" max="100" step="10" />
+    <br />
+    <p>
+      Lastly, you can add an editable attribute to any tag to allow the user to
+      edit.
+    </p>
+    <ul contenteditable="true">
+      <li>You can edit this list!</li>
+    </ul>
+    <!--Below is the JavaScript code-->
+    <script>
+      // Get the data description from a tag
+      //alert(document.getElementById("car").getAttribute("data-description"));
+    </script>
+  </body>
 </html>

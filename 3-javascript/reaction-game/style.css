@@ -1,15 +1,14 @@
-body{
-    font-family: Arial;
+body {
+  font-family: Arial;
 }
 
 #shape {
-    width: 200px;
-    height: 200px;
-    background-color: red;
-    display: none;
-    position: relative;
-
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  display: none;
+  position: relative;
 }
-.bold{
-    font-weight: bold;
+.bold {
+  font-weight: bold;
 }

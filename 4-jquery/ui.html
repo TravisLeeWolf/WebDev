@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>UI with jQuery</title>
-        <!--Loading jQuery in to the page-->
-        <script src="jquery.min.js"></script>
-        <!--This is for jQuery UI-->
-        <script src="jquery-ui/jquery-ui.js"></script>
-        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
-        <!--Below is the CSS code-->
-        <style type="text/css">
-            #draggable{
-                width: 150px;
-                height: 150px;
-                padding: 0.5em;
-                background-color: deepskyblue;
-                text-align: center;
-                }
-        </style>
-    </head>
-    <body>
-        <h2>UI with jQuery</h2>
-        <p>Customizing the UI using jQuery plugins.</p>
-        <hr>
-        <p>After jQuery UI has been added to your code,</p>
-        <p>You can do do things such as below, creating a draggable element.</p>
-        <div id="draggable" class="ui-widget-content">
-            <p>Drag me around</p>
-        </div>
-        <!--Below is the JavaScript code-->
-        <script type="text/javascript">
-            $( function() {
-            // The code below is what makes the element draggable
-            $( "#draggable" ).draggable();
-            });
-        </script>
-    </body>
+  <head>
+    <title>UI with jQuery</title>
+    <!--Loading jQuery in to the page-->
+    <script src="jquery.min.js"></script>
+    <!--This is for jQuery UI-->
+    <script src="jquery-ui/jquery-ui.js"></script>
+    <link href="jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <!--Below is the CSS code-->
+    <style type="text/css">
+      #draggable {
+        width: 150px;
+        height: 150px;
+        padding: 0.5em;
+        background-color: deepskyblue;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>UI with jQuery</h2>
+    <p>Customizing the UI using jQuery plugins.</p>
+    <hr />
+    <p>After jQuery UI has been added to your code,</p>
+    <p>You can do do things such as below, creating a draggable element.</p>
+    <div id="draggable" class="ui-widget-content">
+      <p>Drag me around</p>
+    </div>
+    <!--Below is the JavaScript code-->
+    <script type="text/javascript">
+      $(function () {
+        // The code below is what makes the element draggable
+        $("#draggable").draggable();
+      });
+    </script>
+  </body>
 </html>

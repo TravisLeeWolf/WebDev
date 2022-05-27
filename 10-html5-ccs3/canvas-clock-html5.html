@@ -1,75 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Canvas Clock</title>
-    </head>
-    <body>
-        <h2>Canvas Clock</h2>
-        <p>Using HTML5 to make a canvas drawn clock</p>
+  <head>
+    <title>Canvas Clock</title>
+  </head>
+  <body>
+    <h2>Canvas Clock</h2>
+    <p>Using HTML5 to make a canvas drawn clock</p>
 
-        <canvas id="clock" width="500" height="500"></canvas>
-        <!--Below is the JavaScript code-->
-        <script>
+    <canvas id="clock" width="500" height="500"></canvas>
+    <!--Below is the JavaScript code-->
+    <script>
+      // Make it a function so we can call it constantly
+      function setTime() {
+        var canvas = document.getElementById("clock");
+        var content = canvas.getContext("2d");
+        var clockRadius = canvas.width / 2;
 
-            // Make it a function so we can call it constantly
-            function setTime(){
-                var canvas = document.getElementById("clock");
-                var content = canvas.getContext("2d");
-                var clockRadius = canvas.width/2;
+        content.fillStyle = "#4169E1";
+        content.beginPath();
+        content.arc(clockRadius, clockRadius, clockRadius, 0, 2 * Math.PI);
+        content.fill();
 
-                content.fillStyle = "#4169E1";
-                content.beginPath();
-                content.arc(clockRadius, clockRadius, clockRadius, 0, 2*Math.PI);
-                content.fill();
+        // Inner circle
+        content.fillStyle = "white";
+        content.beginPath();
+        content.arc(clockRadius, clockRadius, 10, 0, 2 * Math.PI);
+        content.fill();
 
-                // Inner circle
-                content.fillStyle = "white";
-                content.beginPath();
-                content.arc(clockRadius, clockRadius, 10, 0, 2*Math.PI);
-                content.fill();
+        content.font = clockRadius / 10 + "px arial";
+        content.textAlign = "center";
+        content.testBaseline = "middle";
+        content.fillText("12", clockRadius, clockRadius - clockRadius * 0.85);
+        //content.fillText("1", (clockRadius + (clockRadius * 0.85 * Math.sin(2*Math.PI / 12))), (clockRadius - (clockRadius * 0.85 * Math.cos(2*Math.PI / 12))));
+        // Making a for loop for the above
+        for (var i = 1; i <= 12; i++) {
+          content.fillText(
+            i,
+            clockRadius + clockRadius * 0.85 * Math.sin((i * 2 * Math.PI) / 12),
+            clockRadius - clockRadius * 0.85 * Math.cos((i * 2 * Math.PI) / 12)
+          );
+        }
 
-                content.font = clockRadius / 10 + "px arial";
-                content.textAlign = "center";
-                content.testBaseline = "middle";
-                content.fillText("12", clockRadius, clockRadius - (clockRadius * 0.85));
-                //content.fillText("1", (clockRadius + (clockRadius * 0.85 * Math.sin(2*Math.PI / 12))), (clockRadius - (clockRadius * 0.85 * Math.cos(2*Math.PI / 12))));
-                // Making a for loop for the above
-                for (var i=1; i<=12; i++){
-                    content.fillText(i, (clockRadius + (clockRadius * 0.85 * Math.sin( i* 2*Math.PI / 12))), (clockRadius - (clockRadius * 0.85 * Math.cos( i* 2*Math.PI / 12))));
-                }
+        var date = new Date();
 
-                var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
 
-                var hours = date.getHours();
-                var minutes = date.getMinutes();
-                var seconds = date.getSeconds();
+        var fullHours = (hours % 12) + minutes / 60 + seconds / 3600;
 
-                var fullHours = hours % 12 + minutes / 60 + seconds / 3600;
+        var hoursAngle = (fullHours * 2 * Math.PI) / 12;
+        var minutesAngle = (minutes * 2 * Math.PI) / 60;
+        var secondsAngle = (seconds * 2 * Math.PI) / 60;
 
-                var hoursAngle = fullHours * 2 * Math.PI / 12;
-                var minutesAngle = minutes * 2 * Math.PI / 60;
-                var secondsAngle = seconds * 2 *  Math.PI / 60;
+        content.strokeStyle = "white";
+        content.moveTo(clockRadius, clockRadius);
+        content.lineTo(
+          clockRadius + clockRadius * 0.6 * Math.sin(hoursAngle),
+          clockRadius - clockRadius * 0.6 * Math.cos(hoursAngle)
+        );
+        content.lineWidth = 5;
+        content.stroke();
 
-                content.strokeStyle = "white";
-                content.moveTo(clockRadius, clockRadius);
-                content.lineTo(clockRadius + (clockRadius * 0.6 * Math.sin(hoursAngle)), clockRadius - (clockRadius * 0.6 * Math.cos(hoursAngle)));
-                content.lineWidth = 5;
-                content.stroke();
+        content.moveTo(clockRadius, clockRadius);
+        content.lineTo(
+          clockRadius + clockRadius * 0.8 * Math.sin(minutesAngle),
+          clockRadius - clockRadius * 0.8 * Math.cos(minutesAngle)
+        );
+        content.lineWidth = 3;
+        content.stroke();
 
-                content.moveTo(clockRadius, clockRadius);
-                content.lineTo(clockRadius + (clockRadius * 0.8 * Math.sin(minutesAngle)), clockRadius - (clockRadius * 0.8 * Math.cos(minutesAngle)));
-                content.lineWidth = 3;
-                content.stroke();
+        content.moveTo(clockRadius, clockRadius);
+        content.lineTo(
+          clockRadius + clockRadius * 0.9 * Math.sin(secondsAngle),
+          clockRadius - clockRadius * 0.9 * Math.cos(secondsAngle)
+        );
+        content.lineWidth = 1.5;
+        content.stroke();
+      }
 
-                content.moveTo(clockRadius, clockRadius);
-                content.lineTo(clockRadius + (clockRadius * 0.9 * Math.sin(secondsAngle)), clockRadius - (clockRadius * 0.9 * Math.cos(secondsAngle)));
-                content.lineWidth = 1.5;
-                content.stroke();
-            }
-
-            setInterval(setTime, 1000);
-
-
-        </script>
-    </body>
+      setInterval(setTime, 1000);
+    </script>
+  </body>
 </html>

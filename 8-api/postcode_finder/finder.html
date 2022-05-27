@@ -1,61 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
 
     <title>Postcode Finder</title>
   </head>
   <body>
-      <!-- HTML content -->
+    <!-- HTML content -->
     <div class="container">
-        <h1 class="display-4">Postcode Finder</h1>
-        <p class="lead">With the use of Google Maps API the below form will find the nearest postcode to your location.</p>
-        <div id="message">
-
+      <h1 class="display-4">Postcode Finder</h1>
+      <p class="lead">
+        With the use of Google Maps API the below form will find the nearest
+        postcode to your location.
+      </p>
+      <div id="message"></div>
+      <form>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" />
+          <small id="addressHelp" class="form-text text-muted"
+            >Enter a partial address to get the postcode.</small
+          >
         </div>
-        <form>
-            <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address">
-              <small id="addressHelp" class="form-text text-muted">Enter a partial address to get the postcode.</small>
-            </div>
-            <button class="btn btn-primary" id="find-postcode">Submit</button>
-        </form>
+        <button class="btn btn-primary" id="find-postcode">Submit</button>
+      </form>
     </div>
 
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Getting Google API with custom JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
-
-    $("#find-postcode").click(function(e){
+      $("#find-postcode").click(function (e) {
         e.preventDefault();
         $.ajax({
-            url : "https://maps.googleapis.com/maps/api/geocode/json?address=" + encodeURIComponent($("#address").val()) + "&key=api_key",
-            type : "GET",
-            success : function (data){
-                if (data["status"] != "OK"){
-                    $("#message").html('<div class="alert alert-danger" role="alert">Counld not find a postcode for that address, please try again.</div>');
-                } else{
-                    $.each(data["results"][0]["address_components"], function(key, value){
-                        if (value["types"][0] == "postal_code"){
-                            $("#message").html('<div class="alert alert-primary" role="alert">Postcode found! <strong>It\'s: ' + value["long_name"] + '</strong>.</div>');
-                        }
-                    })
+          url:
+            "https://maps.googleapis.com/maps/api/geocode/json?address=" +
+            encodeURIComponent($("#address").val()) +
+            "&key=api_key",
+          type: "GET",
+          success: function (data) {
+            if (data["status"] != "OK") {
+              $("#message").html(
+                '<div class="alert alert-danger" role="alert">Counld not find a postcode for that address, please try again.</div>'
+              );
+            } else {
+              $.each(
+                data["results"][0]["address_components"],
+                function (key, value) {
+                  if (value["types"][0] == "postal_code") {
+                    $("#message").html(
+                      '<div class="alert alert-primary" role="alert">Postcode found! <strong>It\'s: ' +
+                        value["long_name"] +
+                        "</strong>.</div>"
+                    );
+                  }
                 }
+              );
             }
-        })
-    })
-
-
+          },
+        });
+      });
     </script>
   </body>
 </html>

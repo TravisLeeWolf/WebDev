@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HTML 5 Canvas</title>
-        <style type="text/css">
-            #myCanvas{
-                border: 1px solid gray;
-            }
-        </style>
-    </head>
-    <body>
-        <h2>HTML 5 Canvas</h2>
-        <p>Using the canvas tag to draw on the screen.</p>
+  <head>
+    <title>HTML 5 Canvas</title>
+    <style type="text/css">
+      #myCanvas {
+        border: 1px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>HTML 5 Canvas</h2>
+    <p>Using the canvas tag to draw on the screen.</p>
 
-        <canvas id="myCanvas" width="500" height="400">
+    <canvas id="myCanvas" width="500" height="400"> </canvas>
+    <!--Below is the JavaScript code-->
+    <script>
+      var myCanvas = document.getElementById("myCanvas");
+      var context = myCanvas.getContext("2d");
 
-        </canvas>
-        <!--Below is the JavaScript code-->
-        <script>
-            var myCanvas = document.getElementById("myCanvas");
-            var context = myCanvas.getContext("2d");
+      var gradient = context.createLinearGradient(0, 0, 350, 300);
+      gradient.addColorStop(0, "white");
+      gradient.addColorStop(1, "#00BFFF");
 
-            var gradient = context.createLinearGradient(0, 0, 350, 300);
-            gradient.addColorStop(0, "white")
-            gradient.addColorStop(1, "#00BFFF")
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, 250, 200);
 
-            context.fillStyle = gradient;
-            context.fillRect(0, 0, 250, 200);
+      context.moveTo(0, 400);
+      context.lineTo(500, 0);
+      context.lineWidth = 10;
+      context.strokeStyle = "#FA8072";
+      context.stroke();
 
-            context.moveTo(0, 400);
-            context.lineTo(500, 0);
-            context.lineWidth = 10;
-            context.strokeStyle = "#FA8072";
-            context.stroke();
+      context.beginPath();
+      context.arc(100, 100, 50, 0, 2 * Math.PI);
+      context.stroke();
 
-            context.beginPath();
-            context.arc(100, 100, 50, 0, 2*Math.PI);
-            context.stroke();
-
-            context.fillStyle = "black";
-            context.font = "40px Arial";
-            context.fillText("My Canvas", 250, 250)
-        </script>
-    </body>
+      context.fillStyle = "black";
+      context.font = "40px Arial";
+      context.fillText("My Canvas", 250, 250);
+    </script>
+  </body>
 </html>

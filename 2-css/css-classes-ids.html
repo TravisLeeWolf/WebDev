@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>CSS with classes and IDs</title>
-        <!--For classes we use the .class to add our CSS to the desired tag-->
-        <!--In the case of id we us the #id to add our CSS to the desired tag-->
-        <style type="text/css">
-            
-            .red{
-                color: red;
-                font-size: 125%;
-            }
-            .blue{
-                color: blue;
-                font-size: 75%;
-            }
-            #green{
-                color: green;
-            }
-            .underlined{
-                text-decoration: underline;
-            }
-        </style>
-    </head>
-    <body>
-        <h2>Internal CSS with classes</h2>
-        <p>When you assign a HTML element to a class it allows you to target that class an change only its CSS</p>
-        <p class="red">This is a paragraph with the first class, in red and 25% bigger.</p>
-        <p class="blue">This is a paragraph with the second class, in blue and 25% smaller.</p>
-        <p id="green">In this case we are using an id and not a class so the code for CSS is different, see comments.</p>
-        <hr>
-        <p>IDs are used once in a single page but classes can be used multiple times, hence in the paragraphs above it's better to use classes.</p>
-        <hr>
-        <p class="red">Lastly we can use both the class and span to target some text within a paragraph, <span class="underlined">here to add additional CSS like underline.</span></p>
-
-    </body>
+  <head>
+    <title>CSS with classes and IDs</title>
+    <!--For classes we use the .class to add our CSS to the desired tag-->
+    <!--In the case of id we us the #id to add our CSS to the desired tag-->
+    <style type="text/css">
+      .red {
+        color: red;
+        font-size: 125%;
+      }
+      .blue {
+        color: blue;
+        font-size: 75%;
+      }
+      #green {
+        color: green;
+      }
+      .underlined {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Internal CSS with classes</h2>
+    <p>
+      When you assign a HTML element to a class it allows you to target that
+      class an change only its CSS
+    </p>
+    <p class="red">
+      This is a paragraph with the first class, in red and 25% bigger.
+    </p>
+    <p class="blue">
+      This is a paragraph with the second class, in blue and 25% smaller.
+    </p>
+    <p id="green">
+      In this case we are using an id and not a class so the code for CSS is
+      different, see comments.
+    </p>
+    <hr />
+    <p>
+      IDs are used once in a single page but classes can be used multiple times,
+      hence in the paragraphs above it's better to use classes.
+    </p>
+    <hr />
+    <p class="red">
+      Lastly we can use both the class and span to target some text within a
+      paragraph,
+      <span class="underlined">here to add additional CSS like underline.</span>
+    </p>
+  </body>
 </html>

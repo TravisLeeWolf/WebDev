@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Disappearing Circles</title>
-        <!--Below is the CSS to make the second set of circles-->
-        <style type="text/css">
-            .circle{
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                float: left;
-                margin-right: 20px;
-            }
-            #blue2{
-                background-color: blue;
-            }
-            #green2{
-                background-color: green;
-            }
-            #red2{
-                background-color: red;
-            }
-            #clear{
-                clear: both;
-            }
-        </style>
-    </head>
-    <body>
-        <h2>Disappearing Circles</h2>
-        <p>Using JavaScript when the circles are clicked they disappear.</p>
-        <hr>
-        <p>Click any of these circles to make them dissapear.</p>
-        <img id="red" src="red-circle.png">
-        <img id="green" src="green-circle.png">
-        <img id="blue" src="blue-circle.png">
-        <p>The above is done using simple images without any CSS.</p>
-        <hr>
-        <p>Now the circles below are done without images but using CSS instead.</p>
-        <div class="circle" id="blue2"></div>
-        <div class="circle" id="green2"></div>
-        <div class="circle" id="red2"></div>
-        <div id="clear"></div>
-        <h3>The same code is used for either way of doing this.</h3>
-        <!--Below is the JavaScript code-->
-        <script type="text/javascript">
-        document.getElementById("red").onclick = function(){
-            document.getElementById("red").style.display = "none";
-        }
-        document.getElementById("green").onclick = function(){
-            document.getElementById("green").style.display = "none";
-        }
-        document.getElementById("blue").onclick = function(){
-            document.getElementById("blue").style.display = "none";
-        }
-        //This is the code for the circles made with CSS
-        document.getElementById("red2").onclick = function(){
-            document.getElementById("red2").style.display = "none";
-        }
-        document.getElementById("green2").onclick = function(){
-            document.getElementById("green2").style.display = "none";
-        }
-        document.getElementById("blue2").onclick = function(){
-            document.getElementById("blue2").style.display = "none";
-        }
-        </script>
-    </body>
+  <head>
+    <title>Disappearing Circles</title>
+    <!--Below is the CSS to make the second set of circles-->
+    <style type="text/css">
+      .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        float: left;
+        margin-right: 20px;
+      }
+      #blue2 {
+        background-color: blue;
+      }
+      #green2 {
+        background-color: green;
+      }
+      #red2 {
+        background-color: red;
+      }
+      #clear {
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Disappearing Circles</h2>
+    <p>Using JavaScript when the circles are clicked they disappear.</p>
+    <hr />
+    <p>Click any of these circles to make them dissapear.</p>
+    <img id="red" src="red-circle.png" />
+    <img id="green" src="green-circle.png" />
+    <img id="blue" src="blue-circle.png" />
+    <p>The above is done using simple images without any CSS.</p>
+    <hr />
+    <p>Now the circles below are done without images but using CSS instead.</p>
+    <div class="circle" id="blue2"></div>
+    <div class="circle" id="green2"></div>
+    <div class="circle" id="red2"></div>
+    <div id="clear"></div>
+    <h3>The same code is used for either way of doing this.</h3>
+    <!--Below is the JavaScript code-->
+    <script type="text/javascript">
+      document.getElementById("red").onclick = function () {
+        document.getElementById("red").style.display = "none";
+      };
+      document.getElementById("green").onclick = function () {
+        document.getElementById("green").style.display = "none";
+      };
+      document.getElementById("blue").onclick = function () {
+        document.getElementById("blue").style.display = "none";
+      };
+      //This is the code for the circles made with CSS
+      document.getElementById("red2").onclick = function () {
+        document.getElementById("red2").style.display = "none";
+      };
+      document.getElementById("green2").onclick = function () {
+        document.getElementById("green2").style.display = "none";
+      };
+      document.getElementById("blue2").onclick = function () {
+        document.getElementById("blue2").style.display = "none";
+      };
+    </script>
+  </body>
 </html>

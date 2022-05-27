@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HTML 5 Video and Audio</title>
-    </head>
-    <body>
-        <h2>HTML 5 Video and Audio</h2>
-        <p>Adding video and audio using HTML 5</p>
-        
-        <!-- Adding video -->
-        <video id="bunnyVid" width="640" height="480" controls autoplay muted>
-            <source src="video.mp4" type="video/mp4">
-            Please upgrade your browser!
-        </video>
-        <!-- You can have a video without audio and hide the controls and set to autoplay as a hero element -->
-        <p>Play or pause the video using this: <button id="play">Play/Pause</button></p>
+  <head>
+    <title>HTML 5 Video and Audio</title>
+  </head>
+  <body>
+    <h2>HTML 5 Video and Audio</h2>
+    <p>Adding video and audio using HTML 5</p>
 
-        <!-- Adding audio -->
-        <audio controls>
-            <source src="audio.mp3" type="audio/mpeg">
-            Please upgrade your browser
-        </audio>
-    </body>
-    <!-- JavaScript here -->
-    <script>
-        document.getElementById("play").onclick = function(){
-            if (document.getElementById("bunnyVid").paused){
-                document.getElementById("bunnyVid").play();
-            } else{
-                document.getElementById("bunnyVid").pause();
-            }
-        }
-    </script>
+    <!-- Adding video -->
+    <video id="bunnyVid" width="640" height="480" controls autoplay muted>
+      <source src="video.mp4" type="video/mp4" />
+      Please upgrade your browser!
+    </video>
+    <!-- You can have a video without audio and hide the controls and set to autoplay as a hero element -->
+    <p>
+      Play or pause the video using this: <button id="play">Play/Pause</button>
+    </p>
+
+    <!-- Adding audio -->
+    <audio controls>
+      <source src="audio.mp3" type="audio/mpeg" />
+      Please upgrade your browser
+    </audio>
+  </body>
+  <!-- JavaScript here -->
+  <script>
+    document.getElementById("play").onclick = function () {
+      if (document.getElementById("bunnyVid").paused) {
+        document.getElementById("bunnyVid").play();
+      } else {
+        document.getElementById("bunnyVid").pause();
+      }
+    };
+  </script>
 </html>

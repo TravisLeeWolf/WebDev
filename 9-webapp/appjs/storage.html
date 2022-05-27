@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Permanent Storage</title>
-        <!-- For App.js -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-        <link rel="stylesheet" href="app.min.css">
-    </head>
-    <body>
+  <head>
+    <title>Permanent Storage</title>
+    <!-- For App.js -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <link rel="stylesheet" href="app.min.css" />
+  </head>
+  <body>
+    <!-- For App.js -->
+    <script src="zepto.js"></script>
 
-        <!-- For App.js -->
-        <script src="zepto.js"></script>
-        
-        <!-- Our code -->
-        <script type="text/javascript">
-            if (typeof(Storage) != "undefined"){
-                
-                // Save item in local storage
-                //localStorage.setItem("name", "Bob"); // When this is commented out, the browser still saves the data in cache
-                //alert(localStorage.getItem("name"));
+    <!-- Our code -->
+    <script type="text/javascript">
+      if (typeof Storage != "undefined") {
+        // Save item in local storage
+        //localStorage.setItem("name", "Bob"); // When this is commented out, the browser still saves the data in cache
+        //alert(localStorage.getItem("name"));
 
-                // Used for storing arrays, cannot be directly stored so JSON is used
-                var names = [];
-                names[0] = prompt("New member name?");
-                localStorage.setItem("names", JSON.stringify(names));
+        // Used for storing arrays, cannot be directly stored so JSON is used
+        var names = [];
+        names[0] = prompt("New member name?");
+        localStorage.setItem("names", JSON.stringify(names));
 
-                // To retrieve items
-                var storedNames = JSON.parse(localStorage.getItem("names"));
-                
-                alert(storedNames[0]);
+        // To retrieve items
+        var storedNames = JSON.parse(localStorage.getItem("names"));
 
-            } else{
-                alert("Please upgrade your browser");
-            }
-        </script>
-    </body>
+        alert(storedNames[0]);
+      } else {
+        alert("Please upgrade your browser");
+      }
+    </script>
+  </body>
 </html>

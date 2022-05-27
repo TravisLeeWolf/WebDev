@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>If Statements</title>
-    </head>
-    <body>
-        <h2>If Statements</h2>
-        <p>Using JavaScript to work with if Statements</p>
-        <hr>
-        <p>Below is a simple login, please enter the password.</p>
-        <p><input type="text" id="password"></p>
-        <p><button id="checkPassword">Enter</button></p>
-        <!--Below is the JavaScript code-->
-        <script type="text/javascript">
-            /*var x = 1;
+  <head>
+    <title>If Statements</title>
+  </head>
+  <body>
+    <h2>If Statements</h2>
+    <p>Using JavaScript to work with if Statements</p>
+    <hr />
+    <p>Below is a simple login, please enter the password.</p>
+    <p><input type="text" id="password" /></p>
+    <p><button id="checkPassword">Enter</button></p>
+    <!--Below is the JavaScript code-->
+    <script type="text/javascript">
+      /*var x = 1;
             if (x==1){
                 alert("x is 1!");
             } else {
                 alert("x is not 1")
             }*/
-            document.getElementById("checkPassword").onclick = function(){
-                var enteredPassword = document.getElementById("password").value;
-                var password = "123abc"
-                if (enteredPassword == password){
-                    alert("Logged in!")
-                } else {
-                    alert("Incorrect password")
-                }
-            }
-        </script>
-    </body>
+      document.getElementById("checkPassword").onclick = function () {
+        var enteredPassword = document.getElementById("password").value;
+        var password = "123abc";
+        if (enteredPassword == password) {
+          alert("Logged in!");
+        } else {
+          alert("Incorrect password");
+        }
+      };
+    </script>
+  </body>
 </html>

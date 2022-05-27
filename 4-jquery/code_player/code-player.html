@@ -1,128 +1,144 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>CodePlayer</title>
-        <!--Loading jQuery in to the page-->
-        <script src="jquery.min.js"></script>
-        <!--Below is the CSS code-->
-        <style type="text/css">
-            body{
-                font-family: sans-serif;
-            }
-            #header{
-                width: 100%;
-                background-color: lightgray;
-                padding: 5px;
-                height: 30px;
-            }
-            #logo{
-                float: left;
-                font-weight: bold;
-                font-size: 120%;
-                padding: 3px 5px;
-            }
-            #buttonContainer{
-                width: 230px;
-                margin: 0 auto;
-            }
-            .toggleButton{
-                float: left;
-                border: 1px solid gray;
-                padding: 5px;
-                border-right: none;
-                font-size: 90%;
-            }
-            #html{
-                border-top-left-radius: 4px;
-                border-bottom-left-radius: 4px;
-            }
-            #output{
-                border-top-right-radius: 4px;
-                border-bottom-right-radius: 4px;
-                border-right: 1px solid gray;
-            }
-            .active{
-                background-color: lightcyan;
-            }
-            .highlightedButton{
-                background-color: gray;
-            }
-            textarea{
-                resize: none;
-                border-top: none;
-                border-color: lightgray;
-            }
-            .panel{
-                float: left;
-                width: 50%;
-                border-left: none;
-            }
-            iframe{
-                border: none;
-            }
-            .hidden{
-                display: none;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="header">
-            <div id="logo">
-                CodePlayer
-            </div>
-            <div id="buttonContainer">
-                <div class="toggleButton active" id="html">HTML</div>
-                <div class="toggleButton" id="css">CSS</div>
-                <div class="toggleButton" id="javascript">JavaScript</div>
-                <div class="toggleButton active" id="output">Output</div>
-            </div>
-        </div>
-        <div id="bodyContainer">
-            <textarea class="panel" id="htmlPanel"><p id="paragraph">Hello World!</p></textarea>
-            <textarea class="panel hidden" id="cssPanel">p{color: green;}</textarea>
-            <textarea class="panel hidden" id="javascriptPanel">document.getElementById("paragraph").innerHTML = "It's working!"</textarea>
-            <iframe class="panel" id="outputPanel"></iframe>
-        </div>
-        <!--Below is the JavaScript code-->
-        <script type="text/javascript">
-            // To update the output
-            function updateOutput(){
-                // Get and display the HTML and CSS
-                $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + $("#cssPanel").val() + "</style></head><body>" + $("#htmlPanel").val() + "</body></html>");
-                // Get and display the JavaScript
-                document.getElementById( "outputPanel" ).contentWindow.eval($( "#javascriptPanel" ).val());
-                /* This applies to the page and not the panel
+  <head>
+    <title>CodePlayer</title>
+    <!--Loading jQuery in to the page-->
+    <script src="jquery.min.js"></script>
+    <!--Below is the CSS code-->
+    <style type="text/css">
+      body {
+        font-family: sans-serif;
+      }
+      #header {
+        width: 100%;
+        background-color: lightgray;
+        padding: 5px;
+        height: 30px;
+      }
+      #logo {
+        float: left;
+        font-weight: bold;
+        font-size: 120%;
+        padding: 3px 5px;
+      }
+      #buttonContainer {
+        width: 230px;
+        margin: 0 auto;
+      }
+      .toggleButton {
+        float: left;
+        border: 1px solid gray;
+        padding: 5px;
+        border-right: none;
+        font-size: 90%;
+      }
+      #html {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+      #output {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-right: 1px solid gray;
+      }
+      .active {
+        background-color: lightcyan;
+      }
+      .highlightedButton {
+        background-color: gray;
+      }
+      textarea {
+        resize: none;
+        border-top: none;
+        border-color: lightgray;
+      }
+      .panel {
+        float: left;
+        width: 50%;
+        border-left: none;
+      }
+      iframe {
+        border: none;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div id="logo">CodePlayer</div>
+      <div id="buttonContainer">
+        <div class="toggleButton active" id="html">HTML</div>
+        <div class="toggleButton" id="css">CSS</div>
+        <div class="toggleButton" id="javascript">JavaScript</div>
+        <div class="toggleButton active" id="output">Output</div>
+      </div>
+    </div>
+    <div id="bodyContainer">
+      <textarea class="panel" id="htmlPanel">
+<p id="paragraph">Hello World!</p></textarea
+      >
+      <textarea class="panel hidden" id="cssPanel">p{color: green;}</textarea>
+      <textarea class="panel hidden" id="javascriptPanel">
+document.getElementById("paragraph").innerHTML = "It's working!"</textarea
+      >
+      <iframe class="panel" id="outputPanel"></iframe>
+    </div>
+    <!--Below is the JavaScript code-->
+    <script type="text/javascript">
+      // To update the output
+      function updateOutput() {
+        // Get and display the HTML and CSS
+        $("iframe")
+          .contents()
+          .find("html")
+          .html(
+            "<html><head><style type='text/css'>" +
+              $("#cssPanel").val() +
+              "</style></head><body>" +
+              $("#htmlPanel").val() +
+              "</body></html>"
+          );
+        // Get and display the JavaScript
+        document
+          .getElementById("outputPanel")
+          .contentWindow.eval($("#javascriptPanel").val());
+        /* This applies to the page and not the panel
                 eval($( "#javascriptPanel" ).val());
                 */
-            };
-            // Colors the buttons on and off hover
-            $( ".toggleButton" ).hover(function(){
-                $( this ).addClass("highlightedButton");
-            }, function(){
-                $( this ).removeClass("highlightedButton");
-            });
-            var numberOfActivePanels = 2
-            // Toggle color for a hovered item
-            $( ".toggleButton" ).click(function(){
-                $( this ).toggleClass("active");
-                $( this ).removeClass("highlightedButton");
-                // Get the id of the panel and open it
-                var panelId = $( this ).attr("id") + "Panel";
-                $( "#" + panelId ).toggleClass( "hidden" );
-                // Change panel width by number selected
-                numberOfActivePanels = 4 - $( ".hidden" ).length;
-                $( ".panel" ).width(($(window).width() / numberOfActivePanels) -15);
-            });
-            // Get the page height and set the textarea height
-            $( ".panel" ).height($(window).height() - $( "#header" ).height() - 25);
-            // Changing panel class width to fit side by side
-            $( ".panel" ).width(($(window).width() / numberOfActivePanels) -15);
-            // Update output panel on page load
-            updateOutput();
-            // Adding our html code to the ouput panel and updating as we type
-            $( "textarea" ).on( "change keyup paste", function(){
-                updateOutput();
-            });
-        </script>
-    </body>
+      }
+      // Colors the buttons on and off hover
+      $(".toggleButton").hover(
+        function () {
+          $(this).addClass("highlightedButton");
+        },
+        function () {
+          $(this).removeClass("highlightedButton");
+        }
+      );
+      var numberOfActivePanels = 2;
+      // Toggle color for a hovered item
+      $(".toggleButton").click(function () {
+        $(this).toggleClass("active");
+        $(this).removeClass("highlightedButton");
+        // Get the id of the panel and open it
+        var panelId = $(this).attr("id") + "Panel";
+        $("#" + panelId).toggleClass("hidden");
+        // Change panel width by number selected
+        numberOfActivePanels = 4 - $(".hidden").length;
+        $(".panel").width($(window).width() / numberOfActivePanels - 15);
+      });
+      // Get the page height and set the textarea height
+      $(".panel").height($(window).height() - $("#header").height() - 25);
+      // Changing panel class width to fit side by side
+      $(".panel").width($(window).width() / numberOfActivePanels - 15);
+      // Update output panel on page load
+      updateOutput();
+      // Adding our html code to the ouput panel and updating as we type
+      $("textarea").on("change keyup paste", function () {
+        updateOutput();
+      });
+    </script>
+  </body>
 </html>
